@@ -1,0 +1,11 @@
+# deploy allowlist: only the site itself gets committed
+/*
+!/*.html
+!/css/
+!/js/
+!/assets/
+!/Compressed/
+!/.gitignore
+!/.nojekyll
+!/server.js
+!/START-PORTFOLIO.bat

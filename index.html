@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0c0a09" />
+<!-- inline so the browser's canvas is dark before any external CSS arrives, kills the white reload flash -->
+<style>html { background-color: #0c0a09; }</style>
+<title>Ashwin Thomas Paul · Product Manager</title>
+<meta name="description" content="Product manager with 6+ years across a two-sided travel marketplace, from loyalty and pricing to growth, and an AI-native builder with three shipped AI products." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=Caveat:wght@600&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="filmgrain" aria-hidden="true"></div>
+<div class="page-grain" id="grain-page" aria-hidden="true"></div>
+
+<header class="site-head">
+  <a class="wordmark" href="#top">Ashwin Thomas Paul</a>
+  <nav class="pill-nav" aria-label="Primary">
+    <a href="#top" class="active">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#story">Story</a>
+    <a href="#work">Work</a>
+    <a href="filmmaking.html">Film</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-ink head-cta" href="assets/resume.pdf" download>Résumé <span class="arr">↓</span></a>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO (dark poster) ============ -->
+  <section class="hero">
+    <div class="hero-grain" id="grain-hero" aria-hidden="true"></div>
+    <div class="hero-frame">
+      <h1 class="hero-title rise d2">I'd rather show you<br />than tell you.</h1>
+      <p class="hero-lede rise d3">Four years running loyalty, offers, and growth on a two-sided travel marketplace, from subscription pricing to the web-to-mobile leap. Hands-on AI builder, daily.</p>
+      <div class="hero-bento rise d4">
+        <a class="scribble" href="project-debatly.html" aria-label="I built this app, see Debatly">
+          <img class="scribble-arrow" src="assets/img/arrow.png" alt="" aria-hidden="true" />
+          <span class="scribble-text">I built this to make sense of messy, live debates</span>
+        </a>
+        <div class="tile tile-video">
+          <video autoplay muted loop playsinline preload="metadata" src="assets/video/debatly-promo.mp4" aria-label="Debatly promo video"></video>
+          <button class="vol muted" id="hero-vol" aria-label="Toggle sound">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"></polygon>
+              <path class="wave" d="M15.5 8.5a5 5 0 0 1 0 7"></path>
+              <path class="wave" d="M18.5 5.5a9.5 9.5 0 0 1 0 13"></path>
+              <line class="slash" x1="22" y1="4" x2="14" y2="20"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="tile tile-stat">
+          <div><b>6+</b><span>years across product, growth, and analytics</span></div>
+          <div><b>0 → 600</b><span>AI Biz Club members in 8 months as Founding President, UTD</span></div>
+          <div><b>3</b><span>AI-native apps vibe-coded, and counting</span></div>
+        </div>
+        <figure class="tile tile-photo">
+          <img src="assets/img/portrait.jpg" alt="Ashwin Thomas Paul, portrait" onerror="this.closest('.tile-photo').classList.add('empty'); this.remove();" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHOTO MARQUEE ============ -->
+  <section class="photostrip">
+    <div class="marq">
+      <div class="marq-track" id="marquee-track">
+        <figure class="mshot"><div class="im"><img src="Compressed/bFGG8gK0yVw11s3OEHrUEENgH4A%20(1).webp" alt="AI Biz Club at UT Dallas" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/film/bts-directing-bw.jpg" alt="Directing on set" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/ai%20biz%20club%20with%20the%20award%20for%20best%20student%20org.jpg" alt="Best Student Organization of the Year" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/Debatly/debate-stage.jpg" alt="Competing in a debate" style="object-position:30% 45%" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/ai%20productivity%20master%20class%20for%20perplexity%20and%20twinmind.png" alt="AI productivity masterclass" style="object-position:50% 22%" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/film/bts-monitor.jpg" alt="At the camera monitor" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/me%20taking%20cursor%20workshop.webp" alt="Running a Cursor workshop" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/film/bts-anurag.jpg" alt="With filmmaker Anurag Kashyap" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/Fireside%20Chat%20Insta%20Thumbnail.jpg" alt="TwinMind CEO fireside chat" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/film/bts-jib-collage.jpg" alt="On location with a jib" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/deans%20council%20owlie%20award%20for%20best%20c%20suite%20executive.png" alt="Dean's Council OWLIE Award" /></div></figure>
+        <figure class="mshot"><div class="im"><img src="Compressed/film/bts-chennai.jpg" alt="Chennai International Short Film Festival" /></div></figure>
+      </div>
+      </div>
+  </section>
+
+  <!-- ============ STATEMENT (scroll-fill) ============ -->
+  <section class="statement">
+    <h2 class="st-line">Find the real problem.<br />Make the sharp bet.<br />Measure what actually moved.</h2>
+    <p class="st-sub">I have done it across a two-sided marketplace moving millions in bookings, digital products for global brands, and AI tools I built end to end. The domain keeps changing. The way I work doesn't.</p>
+  </section>
+
+  <!-- ============ SIDE PROJECTS (dark) ============ -->
+  <section class="works dark" id="projects">
+    <div class="band-grain" id="grain-projects" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="tag-pill">Side projects </div>
+        <h2 class="h-big" style="margin-top:28px">I don't just write about<br />AI products. I build them.</h2>
+        <p class="works-sub">Three products taken from a real problem to a shipped app. Each one is a full PM exercise: discovery, user stories, prioritization, the trade-offs on the record, and how I evaluated whether the AI actually worked. Open one to see the thinking, not just the screens.</p>
+      </div>
+
+      <div class="work-grid" style="margin-top:56px">
+
+        <a class="work-card" href="project-productsense.html">
+          <div class="thumb"><span class="badge">Deep-agent · MCP</span><div class="ph-real" style="aspect-ratio:16/9"><img src="Compressed/productsense/thumbnail.jpg" alt="Productsense" loading="lazy" /></div><span class="metric">Web app</span></div>
+          <h3>Productsense</h3>
+          <p>Maya, an AI product manager for users who can build but can't product. Researches for real, writes the PRD, plans the sprint, and your coding agent builds from it over MCP.</p>
+          <span class="go">See the build <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" href="project-debatly.html">
+          <div class="thumb"><span class="badge">Live product</span><div class="ph-real" style="aspect-ratio:16/9"><img src="Compressed/Debatly/thumbnail.jpg" alt="Debatly, the live debate desk mid-session" loading="lazy" /></div><span class="metric">Web app</span></div>
+          <h3>Debatly</h3>
+          <p>Watches a live debate, works out who said what, fact-checks the claims against the web, and scores both sides while they're still talking. Live at debatly.online.</p>
+          <span class="go">See the build <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" href="project-pantryhub.html">
+          <div class="thumb"><span class="badge">iOS · agentic</span><div class="ph-real contain thumb-yellow" style="aspect-ratio:16/9"><img src="Compressed/Pantryhub/thumbnail.jpg" alt="PantryChef" loading="lazy" /></div><span class="metric">iOS app</span></div>
+          <h3>PantryChef</h3>
+          <p>An AI-chef app that ends food waste: capture your pantry by photo or voice, cook with a text or live-voice chef. Four agents, one shared ledger, a real cost model.</p>
+          <span class="go">See the build <span class="arr">→</span></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HONORS / WALL OF FAME ============ -->
+  <section class="honors" id="story">
+    <div class="wrap">
+      <div class="center reveal"><div class="tag-pill">Numbers that survived scrutiny </div></div>
+      <p class="works-sub" style="color:var(--ink-2);max-width:680px;margin:22px auto 0;text-align:center">Four years as Product Manager on <b>Booking Bash</b>, a two-sided travel &amp; experiences marketplace in Dubai, plus the AI products I've shipped since. Every figure below is one I can decompose in an interview.</p>
+      <div class="stat-field">
+        <div class="stat-grid stagger">
+          <div class="stat-chip"><span class="cursor-tag">Booking Bash · loyalty</span><span class="num">25%</span><span class="lbl">of the target cohort converted to BBPro subscription, about 1,000 paying members in year one</span></div>
+          <div class="stat-chip"><span class="cursor-tag">Booking Bash · partner GTM</span><span class="num">3×</span><span class="lbl">active subscribers, through co-branded launches with Visa, Samsung, and ADCB</span></div>
+          <div class="stat-chip"><span class="cursor-tag">Booking Bash · offers</span><span class="num">2.2×</span><span class="lbl">off-peak demand vs. baseline, rebuilt post-COVID with seasonality-adaptive offers</span></div>
+          <div class="stat-chip"><span class="cursor-tag">Booking Bash · mobile</span><span class="num" data-count="45">45%</span><span class="lbl">lift in bookings per user among migrated users, after I led the web-to-mobile launch</span></div>
+          <div class="stat-chip"><span class="cursor-tag">Booking Bash · marketplace ops</span><span class="num">500+</span><span class="lbl">venue listings I owned on the supply side, from vendor contracts to regulatory compliance</span></div>
+          <div class="stat-chip"><span class="cursor-tag">side projects · AI</span><span class="num">3</span><span class="lbl">AI products shipped end to end: Productsense, Debatly, and PantryChef, all above</span></div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="edu">
+    <div class="wrap">
+      <div class="center reveal"><div class="tag-pill">Education </div></div>
+      <div class="edu-grid">
+        <div class="edu-photo reveal"><div class="ph-real" style="aspect-ratio:3/4"><img src="Compressed/gradutation%20picture.jpg" alt="Ashwin Thomas Paul at UT Dallas graduation" style="object-position:50% 18%" loading="lazy" /></div></div>
+        <div class="edu-body reveal">
+          <h3>The University of Texas at Dallas</h3>
+          <p class="meta">MS, Information Technology &amp; Management · AI &amp; Product Management<br /><span class="dates">Jan 2024 – May 2026</span></p>
+          <div class="edu-stats">
+            <div><div class="num">600</div><div class="lbl">AI Biz Club members</div></div>
+            <div><div class="num">180+</div><div class="lbl">hackathon builders</div></div>
+            <div><div class="num">20</div><div class="lbl">person team led</div></div>
+          </div>
+          <ul class="arrow-list">
+            <li>Received the <b>OWLIE Award</b></li>
+            <li>Founding President, <b>AI Biz Club</b>, UTD's largest AI builder community, Best Student Organization of the Year</li>
+            <li>Automated onboarding & feedback dashboards to manage community growth</li>
+          </ul>
+          <div class="row" style="margin-top:28px">
+            <a class="btn btn-ghost" href="utd-leadership.html">Read the full leadership story <span class="arr">→</span></a>
+          </div>
+          <div class="edu-second">
+            <div class="es-row"><span class="deg">MBA, Marketing &amp; Communication</span><span class="where">Bharati Vidyapeeth</span></div>
+            <div class="es-row"><span class="deg">CSPO® Certified</span><span class="where">Scrum Alliance</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="exp">
+    <div class="wrap">
+      <div class="center reveal"><div class="tag-pill">Professional experience </div></div>
+      <div class="exp-grid stagger">
+        <article class="exp-card">
+          <div class="logo"><img src="Compressed/works/logo-empwr.png" alt="EMPWR logo" /></div>
+          <div class="role">Data Analyst Intern</div>
+          <div class="dates">May 2025 – Dec 2025</div>
+          <p class="blurb">Built a BigQuery and Looker revenue-forecasting pipeline across 4 insurance plans and 400K+ records, with findings presented straight to the CEO and COO.</p>
+          <div class="foot">Digital health · Dallas, TX</div>
+        </article>
+        <article class="exp-card">
+          <div class="logo"><img src="Compressed/works/logo-bb.png" alt="Booking Bash logo" /></div>
+          <div class="role">Product Manager</div>
+          <div class="dates">Nov 2019 – Oct 2023</div>
+          <p class="blurb">Loyalty, offers, and growth on a two-sided travel and experiences marketplace: the BBPro subscription, Visa, Samsung and ADCB partnerships, and the web-to-mobile leap.</p>
+          <div class="foot">Travel marketplace · Dubai, UAE</div>
+        </article>
+        <article class="exp-card">
+          <div class="logo"><img src="Compressed/works/logo-woxro.png" alt="Woxro logo" /></div>
+          <div class="role">Associate Product Manager</div>
+          <div class="dates">Aug 2017 – Oct 2019</div>
+          <p class="blurb">15+ web and mobile products shipped from discovery to launch for global clients like Aramco, Currys, First Direct, and Zenni at a digital product studio.</p>
+          <div class="foot">Digital product studio · Kochi, India</div>
+        </article>
+        <article class="exp-card">
+          <div class="logo"><img src="Compressed/works/logo-aibiz.png" alt="AI Biz Club logo" /></div>
+          <div class="role">Founding President</div>
+          <div class="dates">Jan 2024 – present</div>
+          <p class="blurb">Founded and grew UTD's largest AI builder community from 0 to 600 members in eight months, with 180+ shipping real AI apps. Best Student Organization of the Year.</p>
+          <div class="foot">AI builder community · UT Dallas</div>
+        </article>
+        <article class="exp-card">
+          <div class="logo"><img src="Compressed/works/logo-perplexity.png" alt="Perplexity logo" /></div>
+          <div class="role">Campus Ambassador</div>
+          <div class="dates">May 2025 – Dec 2025</div>
+          <p class="blurb">Drove adoption on campus: AI-productivity masterclasses, prompt playbooks, and Perplexity Spaces embedded directly into coursework.</p>
+          <div class="foot">Perplexity · campus program</div>
+        </article>
+        <article class="exp-card">
+          <div class="logo"><img src="Compressed/works/logo-twinmind.png" alt="TwinMind logo" /></div>
+          <div class="role">Campus Ambassador</div>
+          <div class="dates">May 2025 – Dec 2025</div>
+          <p class="blurb">Ran adoption programs and hosted the TwinMind CEO for a 100-person fireside chat on campus.</p>
+          <div class="foot">TwinMind · campus program</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORKS (dark) ============ -->
+  <section class="works dark" id="work">
+    <div class="band-grain" id="grain-works" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="tag-pill">Selected work </div>
+        <h2 class="h-big" style="margin-top:28px">Work that carries<br />its own numbers.</h2>
+        <p class="works-sub">Product, growth, and marketplace work from my time as a PM. Each piece opens with the metric it earned.</p>
+      </div>
+
+      <div class="filter-row reveal" role="tablist" aria-label="Filter case studies">
+        <button class="fbtn active" data-filter="all">All</button>
+        <button class="fbtn" data-filter="product">Product</button>
+        <button class="fbtn" data-filter="growth">Growth & Monetization</button>
+        <button class="fbtn" data-filter="marketing">Marketing & Research</button>
+      </div>
+
+      <div class="work-grid" id="workgrid">
+
+        <a class="work-card" data-cat="growth marketing" href="work-visa-samsung.html">
+          <div class="thumb"><span class="badge">Flagship case study</span><img src="Compressed/works/visa-samsung.jpg" alt="Visa and Samsung co-branded partnership" loading="lazy" /><span class="metric">3×</span></div>
+          <h3>The Visa × Samsung Partnership</h3>
+          <p>Owned GTM for co-branded partnerships with Visa, Samsung, and ADCB: 3× the subscriber base through a low-CAC channel, with an AIGC pipeline cutting campaign cost 60%.</p>
+          <span class="go">Read the case study <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" data-cat="growth" href="work-subscription-bet.html">
+          <div class="thumb"><span class="badge">Growth & monetization</span><img src="Compressed/works/bbpro-plans.jpg" alt="BBPro subscription plans and member benefits" loading="lazy" /><span class="metric">25%</span></div>
+          <h3>BBPro: The Subscription Bet</h3>
+          <p>Found a power-user cohort in retention data, priced tiers through A/B tests, and converted 25% into ~1,000 paying members in year one.</p>
+          <span class="go">Read the case study <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" data-cat="growth product" href="work-bbpass.html">
+          <div class="thumb"><span class="badge">Offers & pricing</span><img src="Compressed/works/off-season.jpg" alt="Off-season demand offers" loading="lazy" /><span class="metric">2.2×</span></div>
+          <h3>The Off-Peak Recovery</h3>
+          <p>Rebuilt demand after COVID with seasonality-adaptive member offers: off-peak bookings at 2.2× baseline while peak-season margins stayed protected.</p>
+          <span class="go">Read the case study <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" data-cat="product" href="work-web-to-mobile.html">
+          <div class="thumb"><span class="badge">Product</span><img src="Compressed/works/web-to-mobile.jpg" alt="Native iOS and Android app launch" loading="lazy" /><span class="metric">+45%</span></div>
+          <h3>Web-to-Mobile, End to End</h3>
+          <p>Led a cross-functional pod through the mobile transition: native iOS/Android apps with in-app checkout and push re-engagement, bookings per user up 45%.</p>
+          <span class="go">Read the case study <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" data-cat="product" href="work-supply-side.html">
+          <div class="thumb"><span class="badge">Marketplace ops</span><img src="Compressed/works/supply-vendors.jpg" alt="Venue catalog and vendor operations" loading="lazy" /><span class="metric">500+</span></div>
+          <h3>Running the Supply Side</h3>
+          <p>Vendor contracts, partner relationships, and regulatory booking-policy compliance for 500+ live venue listings: the half of a marketplace nobody sees until it breaks.</p>
+          <span class="go">Read the case study <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" data-cat="product marketing" href="work-apollo.html">
+          <div class="thumb"><span class="badge">E-commerce · EV</span><img src="Compressed/works/apollo-banner.jpg" alt="Apollo Scooters storefront" loading="lazy" /><span class="metric">+48.6%</span></div>
+          <h3>Apollo Scooters: Selling a Vehicle Online</h3>
+          <p>A new Shopify storefront and companion mobile app for a Canadian e-scooter brand: research into how people buy a vehicle online, one design system across both, and a purchase journey built for engagement. Customer interaction up 48.6%.</p>
+          <span class="go">Read the case study <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" data-cat="marketing" href="work-currys.html">
+          <div class="thumb"><span class="badge">Conversion</span><img src="Compressed/works/currys-1.jpg" alt="Currys checkout and funnel design" loading="lazy" /><span class="metric">61K</span></div>
+          <h3>Currys: Conversions on Demand</h3>
+          <p>Buyer-behavior research into checkout simplification, payment methods, and product search: 61K additional sales conversions for the UK electronics retailer.</p>
+          <span class="go">Read the case study <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" data-cat="marketing" href="work-first-direct.html">
+          <div class="thumb"><span class="badge">Research</span><img src="Compressed/works/firstdirect-1.jpg" alt="First Direct banking platform redesign" loading="lazy" /><span class="metric">+57%</span></div>
+          <h3>First Direct: Banking on Trust</h3>
+          <p>User interviews, journey mapping, and usability testing on the HSBC Group digital bank: engagement up 57% on a trust-first redesign.</p>
+          <span class="go">Read the case study <span class="arr">→</span></span>
+        </a>
+
+        <a class="work-card" data-cat="product marketing" href="work-aramco.html">
+          <div class="thumb"><span class="badge">Enterprise</span><img src="Compressed/works/aramco-1.jpg" alt="Aramco iktva national program site" loading="lazy" /><span class="metric">40K/day</span></div>
+          <h3>Aramco: A National Program, Online</h3>
+          <p>Full discovery to launch on Saudi Aramco's iktva program site: stakeholder interviews, personas, and information architecture for a national supplier program. 40K daily visitors after launch.</p>
+          <span class="go">Read the case study <span class="arr">→</span></span>
+        </a>
+
+      </div>
+      <p class="works-note">Every number above comes from work I led, and I'm happy to walk through any of them, whiteboard handy.</p>
+    </div>
+  </section>
+
+  <!-- ============ FILMMAKING ============ -->
+  <section class="filmstrip-band">
+    <div class="wrap">
+      <div class="center reveal"><div class="tag-pill">Beyond product</div></div>
+      <h3 class="fb-title reveal">I also direct films.</h3>
+      <p class="works-sub reveal" style="color:var(--ink-2);max-width:660px;margin:22px auto 0;text-align:center">Before product management, and still now, I write, direct, shoot, and edit commercials for global brands. An award-winning filmmaker with 15+ national and international honors.</p>
+      <div class="fb-strip reveal">
+        <a href="filmmaking.html" aria-label="Porsche Onam film"><video muted loop playsinline preload="none" poster="Compressed/film/10_porsche_onam.jpg" data-auto><source src="Compressed/film/10_porsche_onam.mp4" type="video/mp4" /></video></a>
+        <a href="filmmaking.html" aria-label="Storytel, the child film"><video muted loop playsinline preload="none" poster="Compressed/film/04_storytel_child.jpg" data-auto><source src="Compressed/film/04_storytel_child.mp4" type="video/mp4" /></video></a>
+        <a href="filmmaking.html" aria-label="Future Generali film"><video muted loop playsinline preload="none" poster="Compressed/film/01_generali_a.jpg" data-auto><source src="Compressed/film/01_generali_a.mp4" type="video/mp4" /></video></a>
+        <a href="filmmaking.html" aria-label="Storytel kayaking film"><video muted loop playsinline preload="none" poster="Compressed/film/06_storytel_kayak.jpg" data-auto><source src="Compressed/film/06_storytel_kayak.mp4" type="video/mp4" /></video></a>
+      </div>
+      <div class="center" style="margin-top:40px"><a class="btn btn-ink" href="filmmaking.html">See the films <span class="arr">→</span></a></div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLS ============ -->
+  <section class="tools">
+    <div class="wrap">
+      <div class="center reveal"><div class="tag-pill">Skills &amp; tools</div></div>
+      <div class="stack-rows reveal" style="max-width:940px;margin:54px auto 0">
+        <div class="srow">
+          <b>Product craft</b>
+          <div class="schips"><span class="schip">Discovery &amp; user research</span><span class="schip">PRDs &amp; user stories</span><span class="schip">Prioritization &amp; roadmaps</span><span class="schip">Usability testing</span><span class="schip">Journey mapping</span><span class="schip">Stakeholder management</span></div>
+        </div>
+        <div class="srow">
+          <b>Growth &amp; monetization</b>
+          <div class="schips"><span class="schip">Subscription pricing</span><span class="schip">Unit economics</span><span class="schip">A/B &amp; price testing</span><span class="schip">Retention cohorts</span><span class="schip">Partner GTM</span><span class="schip">Funnel diagnosis</span><span class="schip">Offer design</span></div>
+        </div>
+        <div class="srow">
+          <b>AI product</b>
+          <div class="schips"><span class="schip">Agent architecture</span><span class="schip">Prompt design</span><span class="schip">Evals &amp; benchmarking</span><span class="schip">AI cost modeling</span><span class="schip">Context engineering</span><span class="schip">Model selection</span><span class="schip">AIGC production workflows</span></div>
+        </div>
+        <div class="srow">
+          <b>AI stack</b>
+          <div class="schips"><span class="schip">LangGraph</span><span class="schip">LangSmith</span><span class="schip">MCP</span><span class="schip">Gemini API</span><span class="schip">Vertex AI</span><span class="schip">Claude Code</span><span class="schip">Codex</span><span class="schip">Cursor</span><span class="schip">Firecrawl</span></div>
+        </div>
+        <div class="srow">
+          <b>Data</b>
+          <div class="schips"><span class="schip">SQL</span><span class="schip">BigQuery</span><span class="schip">Python</span><span class="schip">Looker</span><span class="schip">Postgres</span><span class="schip">MongoDB</span><span class="schip">Supabase</span></div>
+        </div>
+        <div class="srow">
+          <b>Design &amp; delivery</b>
+          <div class="schips"><span class="schip">Figma</span><span class="schip">Jira</span><span class="schip">GitHub</span><span class="schip">Cloud Run</span><span class="schip">App Store shipping</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING BAND: RESUME → CONTACT → FOOTER ============ -->
+  <div class="closing dark">
+    <div class="band-grain" id="grain-closing" aria-hidden="true"></div>
+
+    <section class="resume">
+      <div class="wrap">
+        <div class="center reveal"><div class="tag-pill">The one-page version </div></div>
+        <div class="resume-grid">
+          <div class="resume-doc reveal"><a href="assets/resume.pdf" download><img src="Compressed/resume-preview.jpg" alt="First page of the résumé" style="width:100%;height:auto;display:block;border-radius:14px" loading="lazy" /></a></div>
+          <div class="resume-body reveal">
+            <h3>The résumé, if you prefer it quiet.</h3>
+            <p>One page, every number defensible in an interview. It's the same document I send to the companies you'd recognize. No separate version for websites.</p>
+            <div class="row">
+              <a class="btn btn-paper" href="assets/resume.pdf" download>Download PDF <span class="arr">↓</span></a>
+              <a class="btn btn-ghost-dark" href="#work">Explore the work <span class="arr">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="reveal"><div class="tag-pill">Get in touch </div></div>
+      <h2 class="h-giant reveal">Let's talk product.</h2>
+      <div class="row reveal">
+        <a class="btn btn-paper" href="mailto:ashwin.thomaskp@gmail.com">Email me <span class="arr">→</span></a>
+        <a class="btn btn-ghost-dark" href="https://www.linkedin.com/in/ashwinthomaspaul" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>
+        <a class="btn btn-ghost-dark" href="https://github.com/majortom-39" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+      </div>
+      <div class="meta-row reveal">
+        <span><b>Email</b> ashwin.thomaskp@gmail.com</span>
+        <span><b>Phone</b> 430-293-5880</span>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>© <span id="yr"></span> <b>Ashwin Thomas Paul</b> · designed and prototyped by me.</span>
+      <span>The background texture is from <b>Debatly</b>, a product I built.</span>
+    </footer>
+  </div>
+
+</main>
+
+<script src="js/grainient.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

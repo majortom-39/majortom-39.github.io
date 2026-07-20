@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f2f1ec" />
+<style>html { background-color: #f2f1ec; }</style>
+<title>PantryChef · AI Build · Ashwin Thomas Paul</title>
+<meta name="description" content="An iOS AI-chef app built end to end: the food-waste problem, a five-model vision benchmark, a four-agent architecture over a single-writer ledger, an image-model bake-off, a real cost model, and a GTM plan." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="filmgrain" aria-hidden="true"></div>
+<div class="page-grain" id="grain-page" aria-hidden="true"></div>
+
+<header class="site-head">
+  <a class="wordmark" href="index.html">Ashwin Thomas Paul</a>
+  <nav class="pill-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="index.html#projects" class="active">Projects</a>
+    <a href="index.html#story">Story</a>
+    <a href="index.html#work">Work</a>
+    <a href="filmmaking.html">Film</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="btn btn-ink head-cta" href="assets/resume.pdf" download>Résumé <span class="arr">↓</span></a>
+</header>
+
+<main>
+
+  <section class="cs-hero">
+    <div class="wrap" style="position:relative;z-index:1">
+      <div class="tag-pill rise d1">Side project · built like a product </div>
+      <h1 class="rise d2" style="margin-top:22px"><img class="cs-hero-logo" src="Compressed/Pantryhub/pantrychef%20logo%20transparent.png" alt="PantryChef" /></h1>
+      <p class="cat rise d3">An AI chef for what's already in your kitchen.</p>
+      <div class="cs-hero-img rise d4">
+        <div class="ph-real contain thumb-yellow" style="aspect-ratio:16/9"><img src="Compressed/Pantryhub/thumbnail.jpg" alt="PantryChef app screens: pantry dashboard, recipe feed, and guided cook mode" /></div>
+      </div>
+
+      <div class="cs-strip rise d5">
+        <span class="chip solid"><b>Solo build</b> · PM, design, code</span>
+        <span class="chip"><b>iOS app</b> · SwiftUI</span>
+        <a class="chip" href="https://github.com/majortom-39/pantryhub" target="_blank" rel="noopener"><b>View code on GitHub</b> ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cs-body">
+
+    <p class="lede">My roommate's pantry was always full, and we still threw food away every month. The problem was never the food. It was remembering what was there. I call it pantry amnesia, and PantryChef is my fix for it.</p>
+
+    <nav class="toc-bar" aria-label="On this page">
+      <a href="#problem"><span class="n">01</span> The problem</a>
+      <a href="#icp"><span class="n">02</span> Who it's for</a>
+      <a href="#loop"><span class="n">03</span> The loop</a>
+      <a href="#vision"><span class="n">04</span> Vision benchmark</a>
+      <a href="#arch"><span class="n">05</span> Architecture</a>
+      <a href="#imagetest"><span class="n">08</span> Image bake-off</a>
+      <a href="#costs"><span class="n">09</span> Costs</a>
+      <a href="#gtm"><span class="n">12</span> Go-to-market</a>
+    </nav>
+
+    <!-- ============ 01 PROBLEM ============ -->
+    <div class="cs-sec" id="problem">
+      <h3><span class="sec-num">01</span>The problem</h3>
+      <p>I noticed this living with an American roommate. Her pantry and fridge were always full. Every few months we would clean them out and throw away bags of expired food, some of it covered in mold. It never made her shop less. The food was there the whole time. She just could not remember it at the moment that mattered: standing in the kitchen, deciding what to cook.</p>
+      <p>She is not unusual. The EPA estimates the average American household throws out about <b>$56 of food every week</b>, close to $3,000 a year, and the USDA puts total waste at <b>30 to 40 percent of the US food supply</b>. The information that would stop it exists. It is sitting on the shelf. It just never reaches the two decisions that matter: <b>what do I cook tonight</b> and <b>what do I need to buy</b>.</p>
+      <p>Pantry apps have tried to fix this before, and they all die the same way: they ask you to type in your groceries and keep the list updated by hand. The upkeep costs more than the list is worth, so people quit within weeks. That became my one hard rule: <b>if adding food to the app takes effort, nothing else matters.</b></p>
+    </div>
+
+    <!-- ============ 02 ICP ============ -->
+    <div class="cs-sec" id="icp">
+      <h3><span class="sec-num">02</span>Who it's for</h3>
+      <div class="icp-hero">
+        <div class="icp-art">
+          <img src="Compressed/Pantryhub/icp-couples.png" alt="Illustration of a busy urban couple having coffee" />
+        </div>
+        <div class="icp-rows">
+          <div class="irow"><b>Who they are</b><p>25 to 40, couples or single professionals in city apartments. Small kitchen, full pantry, a veg drawer they feel guilty about.</p></div>
+          <div class="irow"><b>The pain</b><p>"I bought food to cook, ran out of time and ideas, and threw half of it out. Again."</p></div>
+          <div class="irow"><b>Why them</b><p>They already cook most weeknights. Surveys put the average American at 4 to 6 home-cooked dinners a week, so a better answer to "what's for dinner" pays off almost daily.</p></div>
+        </div>
+      </div>
+      <p class="epic" style="margin-top:18px;background:rgba(255,255,255,.45)"><b>Who it's not for:</b> meal-preppers who already plan every dish (no pain to solve), and big families doing one weekly shop (their problem is planning, not memory). Deciding who it is <i>not</i> for is what kept the menu focused and the capture flow simple.</p>
+    </div>
+
+    <!-- ============ 03 THE LOOP ============ -->
+    <div class="cs-sec" id="loop">
+      <h3><span class="sec-num">03</span>The product is a loop</h3>
+      <p>Four steps, each feeding the next. Easier capture means better suggestions. Honest deduction means tomorrow's menu pushes what is closest to expiry.</p>
+      <div class="loop-row">
+        <div class="loop-step">
+          <span class="lnum">01</span>
+          <div class="licon"><svg viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.1-1.8a1 1 0 0 1 .86-.5h5.68a1 1 0 0 1 .86.5L16.8 6h1.7A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"/><circle cx="12" cy="12" r="3.4"/></svg></div>
+          <h4>Capture</h4><p>Your whole pantry, in. Photo, barcode, or voice.</p>
+        </div>
+        <div class="loop-step">
+          <span class="lnum">02</span>
+          <div class="licon"><svg viewBox="0 0 24 24"><path d="m21.6 3.6-1.2-1.2a1.2 1.2 0 0 0-1.7 0L2.4 18.7a1.2 1.2 0 0 0 0 1.7l1.2 1.2a1.2 1.2 0 0 0 1.7 0L21.6 5.4a1.2 1.2 0 0 0 0-1.7Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg></div>
+          <h4>Curate</h4><p>A fresh daily menu you can cook today.</p>
+        </div>
+        <div class="loop-step">
+          <span class="lnum">03</span>
+          <div class="licon"><svg viewBox="0 0 24 24"><path d="M4 18h16"/><path d="M5 18a7 7 0 0 1 14 0"/><path d="M12 4v3"/><path d="M9 21h6"/><circle cx="12" cy="3.2" r="1"/></svg></div>
+          <h4>Cook</h4><p>The chef guides you, by chat or by voice.</p>
+        </div>
+        <div class="loop-step">
+          <span class="lnum">04</span>
+          <div class="licon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6"/></svg></div>
+          <h4>Deduct</h4><p>What you used comes off your stock on its own.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ EPIC 1 CAPTURE ============ -->
+    <div class="epic">
+      <span class="epic-tag">Epic 1 · Capture</span>
+      <div class="epic-head">
+        <span class="epic-icon"><svg viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.1-1.8a1 1 0 0 1 .86-.5h5.68a1 1 0 0 1 .86.5L16.8 6h1.7A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"/><circle cx="12" cy="12" r="3.4"/></svg></span>
+        <h3>Get a real pantry in, without typing a word</h3>
+      </div>
+      <p style="font-size:16px;color:var(--ink-2)"><b>Epic goal:</b> a full kitchen becomes a live, counted inventory in under a minute, with zero typing.</p>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/1)%20Pantry%20input.jpeg" alt="Add to pantry screen: scan a photo, scan a barcode, or say it out loud" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · Add to pantry</div>
+          <h4>Three easy doors in</h4>
+          <div class="story-item">
+            <span class="sid">US 1.1</span>
+            <span class="stx"><span class="role">As a busy city cook,</span> I want to add my whole grocery haul in one go, so that keeping my pantry up to date takes less effort than it saves.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> typing in groceries is the reason every pantry app before this one died.</p>
+          <div class="doors">
+            <div class="door hero-door">
+              <span class="dicon"><svg viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.1-1.8a1 1 0 0 1 .86-.5h5.68a1 1 0 0 1 .86.5L16.8 6h1.7A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"/><circle cx="12" cy="12" r="3.4"/></svg></span>
+              <div>
+                <h5>Photo<span class="badge">Main path</span></h5>
+                <p>Snap a shelf, a product, or a <b>receipt</b>. The vision model reads the name, brand, and size of every item it can see. One photo of a receipt can log an entire shop.</p>
+              </div>
+            </div>
+            <div class="door">
+              <span class="dicon"><svg viewBox="0 0 24 24"><path d="M3 5v14"/><path d="M6.5 5v14"/><path d="M10 5v14"/><path d="M13.5 5v14"/><path d="M17 5v14"/><path d="M20.5 5v14"/></svg></span>
+              <div>
+                <h5>Barcode</h5>
+                <p>The phone scans the code, then looks it up in the open <b>Open Food Facts</b> database. Verified product data, not a model guess.</p>
+              </div>
+            </div>
+            <div class="door">
+              <span class="dicon"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></span>
+              <div>
+                <h5>Voice</h5>
+                <p>Just say what you bought while you unpack the bags. Speech is handled on the phone itself.</p>
+              </div>
+            </div>
+          </div>
+          <p class="screen-note">Design call: the easiest path, a photo of the receipt, is the main one, not a side feature.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/2)%20inventory%20confirmation.jpeg" alt="Review screen: 15 items found, with the model flagging what it was not sure about" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · Review &amp; confirm</div>
+          <h4>The trust layer: the model says what it isn't sure of</h4>
+          <div class="story-item">
+            <span class="sid">US 1.2</span>
+            <span class="stx"><span class="role">As someone burned by bad autofill,</span> I want to see what the model guessed before I accept it, so that I can trust my pantry without re-checking every item.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> a quietly wrong inventory ruins every recipe after it, and loses the user for good.</p>
+          <p>Every capture path lands on <b>one review screen</b>, and you confirm four things per item: the <b>name</b>, the <b>quantity</b>, the <b>count</b>, and the <b>expiry date</b>. The model pre-fills all four and flags what it was unsure about; one item here reads <i>"brand partially obscured, assumed generic pantry brand."</i> The editor adapts to the product: a draggable fill level for jars and liquids, a piece counter for eggs and fruit. Tracking amounts and dates, not just names, is what makes "running low" and "expiring soon" possible later.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 04 VISION BENCHMARK ============ -->
+    <div class="cs-sec" id="vision">
+      <h3><span class="sec-num">04</span>Testing the camera before trusting it</h3>
+      <p>Photo capture is the main promise of the product, which makes it the biggest risk. If the model misreads the shelf, every recipe after it is wrong. So before building on it, I benchmarked <b>five vision models</b> on my real kitchen.</p>
+
+      <div class="photo-grid4">
+        <figure><div class="pht"><img src="Compressed/Pantryhub/vision-test-shelf.jpg" alt="Pantry shelf, angle 1: densely packed cans and jars" loading="lazy" /></div><figcaption>Pantry · angle 1</figcaption></figure>
+        <figure><div class="pht"><img src="Compressed/Pantryhub/vision-pantry-2.jpg" alt="Pantry shelf, angle 2" loading="lazy" /></div><figcaption>Pantry · angle 2</figcaption></figure>
+        <figure><div class="pht"><img src="Compressed/Pantryhub/vision-counter.jpg" alt="Kitchen counter with products lined up" loading="lazy" /></div><figcaption>Counter</figcaption></figure>
+        <figure><div class="pht"><img src="Compressed/Pantryhub/vision-fridge.jpg" alt="Fridge door shelf with milk, juice, butter, and condiments" loading="lazy" /></div><figcaption>Fridge</figcaption></figure>
+      </div>
+
+      <p><b>The setup.</b> Four tests, growing from one photo to a whole kitchen. Ground truth was hand-checked: I listed every product myself before showing the models anything.</p>
+      <div class="cs-matrix">
+        <div class="row head"><span>Test</span><span>Photos</span><span>Areas</span><span>Products</span></div>
+        <div class="row"><span class="feat">A</span><span>1 photo</span><span>Pantry</span><span>14</span></div>
+        <div class="row"><span class="feat">B</span><span>3 angles</span><span>Pantry</span><span>14</span></div>
+        <div class="row"><span class="feat">C</span><span>6 photos</span><span>Pantry + counter</span><span>22</span></div>
+        <div class="row"><span class="feat">D</span><span>9 photos</span><span>Pantry + counter + fridge</span><span>27</span></div>
+      </div>
+      <p><b>The scoring rule</b>, applied per product:</p>
+      <div class="score-rule">
+        <span>Brand and product both right = <b>1 point</b></span>
+        <span>Only one right = <b>0.5</b></span>
+        <span>Neither = <b>0</b></span>
+      </div>
+
+      <figure class="chart-card chart-wide">
+        <img src="Compressed/Pantryhub/chart-1.jpg" alt="Bubble chart: accuracy versus response time, bubble size is cost per call, with a 90 percent accuracy threshold line" loading="lazy" />
+        <figcaption><b>Accuracy vs speed vs cost.</b> Top-left with a small bubble is the winner: fast, accurate, and cheap. Anything under the 90% line is out. Two models fail that bar outright.</figcaption>
+      </figure>
+      <div class="chart-pair">
+        <figure class="chart-card">
+          <img src="Compressed/Pantryhub/chart-2.jpg" alt="Weighted model ranking bar chart: accuracy 50 percent, speed 30 percent, cost 20 percent" loading="lazy" />
+          <figcaption><b>Weighted ranking</b> (accuracy 50%, speed 30%, cost 20%). kimi-k2.5 is nearly as accurate as the winner but scores zero on both speed and cost, so its bar collapses.</figcaption>
+        </figure>
+        <figure class="chart-card">
+          <img src="Compressed/Pantryhub/chart-3.jpg" alt="Test D score by shelf space: pantry, counter, and fridge scores stacked per model" loading="lazy" />
+          <figcaption><b>Test D by area.</b> The pantry, the densest and most blocked view, is where models separated. Counter and fridge scores were nearly identical across the top three.</figcaption>
+        </figure>
+      </div>
+
+      <div class="cs-matrix">
+        <div class="row head"><span>Model</span><span>Accuracy</span><span>Speed · cost per call</span><span>Verdict</span></div>
+        <div class="row"><span class="feat">gemini-3.1-flash-lite</span><span>98.1%</span><span>6.85s · $0.0037</span><span class="flag green">Shipped</span></div>
+        <div class="row"><span class="feat">gpt-5-chat-latest</span><span>92.6%</span><span>~11s · mid</span><span class="flag yellow">Fallback</span></div>
+        <div class="row"><span class="feat">kimi-k2.5 (thinking off)</span><span>~96%</span><span>~25s · highest cost</span><span class="flag yellow">Accurate, unusable</span></div>
+        <div class="row"><span class="feat">claude-haiku-4-5</span><span>~79%</span><span>fastest of the five</span><span class="flag red">Under the 90% bar</span></div>
+        <div class="row"><span class="feat">moonshot-v1-128k</span><span>~78%</span><span>~22s</span><span class="flag red">Under the 90% bar</span></div>
+      </div>
+
+      <p><b>The calls that came out of it.</b> <code>gemini-3.1-flash-lite</code> won all three axes and is the model in production. <b>gpt-5-chat-latest is kept as the fallback</b> for one specific reason: it runs on completely separate infrastructure, so if Google has an outage, capture still works. And the per-area chart shaped the product itself: the pantry shelf is where every model struggled most, because products hide behind each other. That is a physics problem, not a prompting problem, so the capture flow asks for <b>a few angles per area</b> instead of pretending one photo is enough.</p>
+    </div>
+
+    <!-- ============ EPIC 2 PANTRY ============ -->
+    <div class="epic">
+      <span class="epic-tag">Epic 2 · The living pantry</span>
+      <div class="epic-head">
+        <span class="epic-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M8 6.5h.01"/><path d="M8 12.5h.01"/><path d="M8 18.5h.01"/></svg></span>
+        <h3>An inventory that keeps itself honest</h3>
+      </div>
+      <p style="font-size:16px;color:var(--ink-2)"><b>Epic goal:</b> the pantry stops being a list you maintain and becomes a signal you act on.</p>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/3)%20virtual%20pantry%20page.jpeg" alt="Pantry home: 92 items, 58 expiring soon, 11 running low, with expiry badges" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · Pantry home</div>
+          <h4>Signals, not a spreadsheet</h4>
+          <div class="story-item">
+            <span class="sid">US 2.1</span>
+            <span class="stx"><span class="role">As someone who forgets what's about to go off,</span> I want the app to tell me what needs attention, so that I act before food dies, not after.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> an inventory you can't act on is just a list.</p>
+          <p>The home screen leads with the three numbers that drive a decision. In the demo pantry shown here that's <b>92 items, 58 expiring soon, 11 running low</b>, with an expiry badge on every item. Because capture recorded amounts and dates, the app can honestly tell you that you're short, later, mid-cook.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/3.1)%20pantry%20page%20collapsed%20view.jpeg" alt="Collapsed pantry: categories with counts, expand or collapse all" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · Collapsed view</div>
+          <h4>Let the user control the density</h4>
+          <div class="story-item">
+            <span class="sid">US 2.2</span>
+            <span class="stx"><span class="role">As a user with a packed pantry,</span> I want to collapse it into categories, so that a long list stays manageable.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> a heavy pantry is a wall of scrolling.</p>
+          <p>Categories collapse to counts, like <b>Condiments &amp; Spices 33</b> and <b>Dairy &amp; Eggs 11</b>, with one control to expand or collapse everything. Whether a full pantry feels manageable or exhausting is a real product decision, so the density got designed, not defaulted.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ EPIC 3 CURATE ============ -->
+    <div class="epic">
+      <span class="epic-tag">Epic 3 · Curate</span>
+      <div class="epic-head">
+        <span class="epic-icon"><svg viewBox="0 0 24 24"><path d="m21.6 3.6-1.2-1.2a1.2 1.2 0 0 0-1.7 0L2.4 18.7a1.2 1.2 0 0 0 0 1.7l1.2 1.2a1.2 1.2 0 0 0 1.7 0L21.6 5.4a1.2 1.2 0 0 0 0-1.7Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg></span>
+        <h3>A daily menu matched to <i>your</i> kitchen</h3>
+      </div>
+      <p style="font-size:16px;color:var(--ink-2)"><b>Epic goal:</b> nobody should answer "what's for dinner" from a blank page again. Four user stories, four screens.</p>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/8)%20this%20is%20the%20settings%20page%20where%20uses%20can%20set%20preferences%20so%20the%20chef%20curates%20only%20with%20this%20knowledge.jpeg" alt="Preferences: cuisines, dietary preferences, and allergies that shape the daily menu" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · Preferences</div>
+          <h4>Teach the chef once; it never crosses the line</h4>
+          <div class="story-item">
+            <span class="sid">US 3.1</span>
+            <span class="stx"><span class="role">As someone with an allergy,</span> I want my limits set once and never crossed, so that I can trust a food app with something that actually matters.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> a generic menu suggests things you'd never cook, or worse, can't eat.</p>
+          <p>Cuisines you like, dietary choices, and <b>allergies</b> (Shellfish, flagged in red) become permanent rules for the nightly menu. Allergies aren't a filter you keep re-applying. They're a hard boundary the chef cannot cross, and with food, that's the difference between a fun feature and a trustworthy one.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/4)%20ai%20chef%20curates%20recipes%20from%20the%20pantry.jpeg" alt="Recipe feed: breakfast, lunch, dinner, snacks, with match percentages from your pantry" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · The daily menu</div>
+          <h4>Four meals a day, ranked by what you own</h4>
+          <div class="story-item">
+            <span class="sid">US 3.2</span>
+            <span class="stx"><span class="role">As someone standing in the kitchen at 7pm,</span> I want meals I can make from what I already have, so that dinner doesn't need a grocery run or a decision.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> the real job was never "track my pantry." It's "decide dinner."</p>
+          <p>Every night the chef builds breakfast, lunch, dinner, and snacks, two to three options each. Two rules drive the picks: a recipe has to match at least <b>75% of its ingredients to your pantry</b> to make the cut (anything below is dropped, not padded), and <b>ingredients closest to expiry get priority</b>, so the menu actively rescues food before it dies. Every card carries full nutrition. This is where the work of scanning your pantry pays off.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/5)%20recipe%20detailed%20page.jpeg" alt="Recipe detail: difficulty toggle and an Adults and Kids serving scaler that recalculates ingredients" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · Recipe detail</div>
+          <h4>Adjusts to who's eating, and honest about what's missing</h4>
+          <div class="story-item">
+            <span class="sid">US 3.3</span>
+            <span class="stx"><span class="role">As someone cooking for a changing household,</span> I want amounts to scale and shortages flagged up front, so that I don't find out I'm short halfway through.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> recipes assume a fixed household and a full pantry. Real kitchens have neither.</p>
+          <p>The <b>Adults / Kids</b> scaler recalculates every amount live (the app stores every ingredient in standard units underneath, which is what makes the math trustworthy), and an <b>Easy / Medium / Elaborate</b> toggle rewrites the method. If you're short on something, it says so and <b>offers a swap</b> from what you own.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/5)%20even%20request%20for%20custom%20recipes.jpeg" alt="Custom request screen: ask for a specific dish, still limited to your pantry" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · Ask for something else</div>
+          <h4>Don't like tonight's menu? Ask for what you want</h4>
+          <div class="story-item">
+            <span class="sid">US 3.4</span>
+            <span class="stx"><span class="role">As someone with a specific craving,</span> I want to ask for a different dish and still cook it right now, so that the menu is a starting point, not a cage.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> a fixed menu can't guess a craving.</p>
+          <p>From any recipe you can ask the chef for something new: a different dish, or a tweak like "make it lighter" or "swap the beef." The answer stays inside your pantry, so it's always something you can actually cook tonight. Under the hood this is a separate agent from the one that builds the nightly menu; more on that in the architecture.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ EPIC 4 COOK ============ -->
+    <div class="epic">
+      <span class="epic-tag">Epic 4 · Cook</span>
+      <div class="epic-head">
+        <span class="epic-icon"><svg viewBox="0 0 24 24"><path d="M4 18h16"/><path d="M5 18a7 7 0 0 1 14 0"/><path d="M12 4v3"/><path d="M9 21h6"/><circle cx="12" cy="3.2" r="1"/></svg></span>
+        <h3>Guided cooking, whichever way is convenient</h3>
+      </div>
+      <p style="font-size:16px;color:var(--ink-2)"><b>Epic goal:</b> the same guided cook, two ways in. Chat when you're reading and planning; voice when your hands are busy. Not a sequence, a choice.</p>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/6.0)%20chat%20mode%20with%20chef%20this%20comes%20first%20in%20the%20flow%20fyi.jpeg" alt="Chat mode: step-by-step chat with one Done button, timers, and a voice toggle" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · Chat mode</div>
+          <h4>One clear step at a time, one button to advance</h4>
+          <div class="story-item">
+            <span class="sid">US 4.1</span>
+            <span class="stx"><span class="role">As someone mid-cook,</span> I want one step at a time instead of a wall of recipe, so that I never lose my place when I look away.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> full recipe pages are unreadable while you cook.</p>
+          <p>Cook mode is a <b>chat with the chef</b>: one small step at a time, a single <b>Done</b> button to advance, and an open box to ask anything, like "can I swap butter for oil?" Timers can be set by you, or the chef starts them itself from the step. The waveform button in the corner switches to voice.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/6)%20hands%20free%20voice%20mode%20for%20guided%20cooking%20experience.jpeg" alt="Voice mode: step 2 of 8, live timer, and a spoken command to go back a step" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · Voice mode</div>
+          <h4>Same cook, hands free, nothing falls out of sync</h4>
+          <div class="story-item">
+            <span class="sid">US 4.2</span>
+            <span class="stx"><span class="role">As someone with messy hands at the stove,</span> I want to talk to the chef instead of touching the screen, so that cooking stays hands-free when it needs to be.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> touching a phone with wet or oily hands, and losing your progress when you switch modes.</p>
+          <p>Tap the waveform and a <b>live voice conversation</b> takes over the <i>same</i> cook session. Say <i>"go back to step 2,"</i> <i>"set a timer for the rice,"</i> or <i>"I'm out of cumin,"</i> and it checks your live pantry, edits the recipe, moves the steps, and runs timers with lock-screen alerts. Chat and voice share one session and one source of truth, so switching between them never loses your place.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ EPIC 5 DEDUCT ============ -->
+    <div class="epic">
+      <span class="epic-tag">Epic 5 · Deduct</span>
+      <div class="epic-head">
+        <span class="epic-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6"/></svg></span>
+        <h3>Finish cooking, and the loop closes itself</h3>
+      </div>
+      <p style="font-size:16px;color:var(--ink-2)"><b>Epic goal:</b> the inventory stays true with zero upkeep, because upkeep is the exact chore this product exists to remove.</p>
+
+      <div class="cs-flow">
+        <div class="phone"><img src="Compressed/Pantryhub/7)%20find%20saved%20and%20cooked%20recipes.jpeg" alt="Kitchen tab: weekly streak, meals this month, ingredients used, cooked and saved libraries" loading="lazy" /></div>
+        <div class="flow-copy">
+          <div class="step-n">Screen · The Kitchen</div>
+          <h4>"Done cooking" saves it, deducts it, and feeds it back in</h4>
+          <div class="story-item">
+            <span class="sid">US 5.1</span>
+            <span class="stx"><span class="role">As someone who will never update an inventory by hand,</span> I want the app to know what I just used, so that tomorrow's menu stays honest without any work from me.</span>
+          </div>
+          <p class="friction"><b>What it fixes:</b> manual inventory upkeep, the chore that kills every pantry app.</p>
+          <p>Hitting <b>done cooking</b> does three things at once: the recipe lands in your <b>Cooked</b> library, the ingredients you used come <b>off the pantry</b>, and tomorrow's menu rebuilds around the new stock, pushing whatever is now closest to expiry to the top. The Kitchen tab shows the payoff: a weekly streak, <b>7 meals this month</b>, and <b>15 ingredients used</b>. That last number is the whole promise of the app, counted.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 05 ARCHITECTURE ============ -->
+    <div class="cs-sec" id="arch">
+      <h3><span class="sec-num">05</span>Architecture</h3>
+      <p>The user sees one chef. Underneath there are two separate flows that never run at the same time: what happens <b>while you cook</b>, and what happens <b>while you sleep</b>. The app is SwiftUI on iOS. Supabase (Postgres) holds the one copy of the truth. Two small services on Google Cloud Run talk to the models, so the app itself never holds a model key.</p>
+
+      <span class="d-label">Flow 1 · When you cook</span>
+      <div class="flowd">
+        <div class="fnode fa-app">
+          <h5>iPhone app</h5>
+          <div class="fid">SwiftUI · iOS 17+</div>
+          <p>One cook session, two doors: chat or voice.</p>
+        </div>
+        <span class="farr fa-a1" aria-hidden="true"></span>
+        <div class="fnode fa-text">
+          <h5>Chat</h5>
+          <div class="fid">text-chef · Supabase function</div>
+          <p>Reads your live pantry and the recipe, answers questions, decides which tools to call.</p>
+        </div>
+        <div class="fnode fa-voice">
+          <h5>Voice</h5>
+          <div class="fid">voice-chef · Cloud Run, WebSocket</div>
+          <p>Live speech in and out through Gemini Live. Same pantry access, same tools as chat.</p>
+        </div>
+        <span class="farr fa-a2" aria-hidden="true"></span>
+        <div class="fnode hot fa-led">
+          <h5>recipe-ledger</h5>
+          <div class="fid">THE ONLY WRITER</div>
+          <p>Owns your copy of the recipe: the ingredient list with any swaps, and the steps. Every change goes through here. 10 operations, ownership checked once.</p>
+        </div>
+        <span class="farr fa-a3" aria-hidden="true"></span>
+        <div class="fnode dark fa-db">
+          <h5>Postgres</h5>
+          <div class="fid">Supabase</div>
+          <p>One copy of the recipe, the steps, and your progress.</p>
+        </div>
+      </div>
+      <p><b>Why the ledger exists.</b> Both agents can <i>read</i> your pantry inventory directly; that is how "I'm out of cumin" gets an answer from what you actually own. But writing is different. Chat and voice can both change a live cook: swap an ingredient, reorder steps, mark one done. Two writers on the same recipe is how things drift apart. So neither of them writes anything. Both hand their changes to <code>recipe-ledger</code>, which owns your copy of the recipe, meaning the ingredient list with any substitutions, the steps, and your progress through them, and returns a fresh snapshot after every change. That is the entire reason you can start a dish in chat, switch to voice with wet hands, and find your step, your timers, and your swapped ingredient exactly where they should be.</p>
+      <p><b>The detail I'm proudest of.</b> When the ledger swaps an ingredient, it also returns a list called <code>affected_steps</code>: the steps that still mention the old ingredient. The chef doesn't have to notice the mess on its own. The tool hands it the cleanup work. Designing the tool so the model <i>can't</i> quietly leave the recipe broken worked better than any prompt instruction.</p>
+
+      <span class="d-label">Flow 2 · While you sleep</span>
+      <div class="pipe">
+        <div class="pstep">
+          <div class="prail"><span class="pdot">1</span><span class="pline"></span></div>
+          <div class="pbody"><h5>Cloud Scheduler <code>every 15 min</code></h5><p>Pokes the pipeline around the clock.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">2</span><span class="pline"></span></div>
+          <div class="pbody"><h5>curate-dispatch</h5><p>Finds users whose local time just hit midnight, wherever they live, and hands each one to the curator. Running per timezone also spreads the load across the whole day.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">3</span><span class="pline"></span></div>
+          <div class="pbody"><h5>curate-recipes <code>gemini-3.1-flash-lite</code></h5><p>Builds the day's menu from the live pantry and preferences. Drops any recipe under a 75% pantry match, and puts ingredients closest to expiry first. Searches the web only when it needs to check a dish is real.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">4</span><span class="pline"></span></div>
+          <div class="pbody"><h5>paint-drain <code>every few min</code></h5><p>Recipes are saved without images first. This worker finds the next few unpainted ones and calls the painter for each, with pauses and retries, so the image service never gets hammered.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">5</span><span class="pline"></span></div>
+          <div class="pbody"><h5>paint-recipe <code>ZImageTurbo_INT8</code></h5><p>The painter itself, called once per dish by the drain. First asks Gemini what the finished dish actually looks like (with web search), then sends that description to the image model. 1024×768, 8 steps.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">6</span></div>
+          <div class="pbody"><h5>Storage → your morning menu</h5><p>Finished images land in Supabase Storage. You wake up to a fresh, fully illustrated menu.</p></div>
+        </div>
+      </div>
+
+      <p><b>One honest scar.</b> Voice originally ran as a Supabase function too. Long cooking conversations kept hitting the platform's execution time limits, so voice moved to its own Cloud Run service on a WebSocket. The old function is still in the repo as a retired stub, on purpose, so the history of the decision stays readable.</p>
+    </div>
+
+    <!-- ============ 06 TECH STACK ============ -->
+    <div class="cs-sec" id="stack">
+      <h3><span class="sec-num">06</span>Tech stack</h3>
+      <div class="stack-rows">
+        <div class="srow">
+          <b>Client</b>
+          <div class="schips">
+            <span class="schip">SwiftUI · iOS 17+</span>
+            <span class="schip">VisionKit barcode scan</span>
+            <span class="schip">On-device speech</span>
+            <span class="schip">Lock-screen timers</span>
+            <span class="schip">WebSocket voice</span>
+            <span class="schip">No model keys on device</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Backend</b>
+          <div class="schips">
+            <span class="schip">Supabase Postgres</span>
+            <span class="schip">14 Deno edge functions</span>
+            <span class="schip">Row-level security</span>
+            <span class="schip">Storage for recipe images</span>
+            <span class="schip"><code>recipe-ledger</code> as the only writer</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Services</b>
+          <div class="schips">
+            <span class="schip">Cloud Run <code>vertex-proxy</code></span>
+            <span class="schip">Cloud Run <code>voice-chef</code></span>
+            <span class="schip">Cloud Scheduler</span>
+            <span class="schip">deAPI image generation</span>
+            <span class="schip">Open Food Facts lookup</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Models</b>
+          <div class="schips">
+            <span class="schip"><code>gemini-3.1-flash-lite</code> · menu, chat, vision</span>
+            <span class="schip"><code>gemini-live-2.5-flash</code> · live voice</span>
+            <span class="schip">Google Search grounding · fact checks</span>
+            <span class="schip"><code>ZImageTurbo_INT8</code> · thumbnails</span>
+          </div>
+        </div>
+      </div>
+      <p class="cs-stack-note">Every model name above is the exact string pinned in the repo, not a marketing name.</p>
+    </div>
+
+    <!-- ============ 07 ONE CHEF, FOUR MODES ============ -->
+    <div class="cs-sec" id="modes">
+      <h3><span class="sec-num">07</span>One chef, four modes</h3>
+      <p>You only ever talk to "the chef." Behind it, four separate agents each do one job. One prompt trying to do all four would be worse at every one of them, and splitting them means each can be tuned, priced, and tested on its own.</p>
+      <div class="mode-rows">
+        <div class="mode-row">
+          <div class="micon"><svg viewBox="0 0 24 24"><path d="m21.6 3.6-1.2-1.2a1.2 1.2 0 0 0-1.7 0L2.4 18.7a1.2 1.2 0 0 0 0 1.7l1.2 1.2a1.2 1.2 0 0 0 1.7 0L21.6 5.4a1.2 1.2 0 0 0 0-1.7Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/></svg></div>
+          <div class="mtitle"><b>Curates the menu</b><span>Every night at your midnight</span></div>
+          <div class="mwhat">Builds the four-meal menu from your live pantry and preferences. Drops anything under a 75% match.</div>
+          <div class="mmodel">gemini-3.1-flash-lite</div>
+        </div>
+        <div class="mode-row">
+          <div class="micon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></div>
+          <div class="mtitle"><b>Takes requests</b><span>Whenever you ask</span></div>
+          <div class="mwhat">Don't like the menu? Ask for a new dish or a tweak. The answer stays inside what your pantry can make.</div>
+          <div class="mmodel">gemini-3.1-flash-lite</div>
+        </div>
+        <div class="mode-row">
+          <div class="micon"><svg viewBox="0 0 24 24"><path d="M4 18h16"/><path d="M5 18a7 7 0 0 1 14 0"/><path d="M12 4v3"/><path d="M9 21h6"/><circle cx="12" cy="3.2" r="1"/></svg></div>
+          <div class="mtitle"><b>Guides by chat</b><span>In cook mode</span></div>
+          <div class="mwhat">One step at a time, answers questions, sets timers, breaks hard steps down. Calls the ledger for every change.</div>
+          <div class="mmodel">gemini-3.1-flash-lite</div>
+        </div>
+        <div class="mode-row">
+          <div class="micon"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+          <div class="mtitle"><b>Talks you through it</b><span>Hands-free</span></div>
+          <div class="mwhat">A live voice conversation over the same cook session. Same toolbox, same ledger, so nothing ever drifts.</div>
+          <div class="mmodel">gemini-live-2.5-flash</div>
+        </div>
+      </div>
+      <p>The chat and voice modes share one toolbox: read the pantry, edit, add, remove, or swap an ingredient, edit or reorder steps, mark a step done, set the current step, set a timer, cancel a timer. <b>Ten operations, one writer, two doors.</b></p>
+    </div>
+
+    <!-- ============ 08 IMAGE MODEL BAKE-OFF ============ -->
+    <div class="cs-sec" id="imagetest">
+      <h3><span class="sec-num">08</span>Choosing the image model: a bake-off, not a vibe</h3>
+      <p>Every recipe card gets a generated photo, and at roughly 300 recipes per user per month that's a recurring bill, not a one-off. I tested four image models with the exact same prompt and judged one thing: <b>did it draw what was asked?</b></p>
+
+      <div class="prompt-block">
+        <div class="plabel">The fixed prompt, identical for all four models</div>
+        <p>Commercial food photography of a gourmet spinach ravioli dish. The bright green pasta shapes are arranged elegantly on a minimalist matte white plate. Drizzled with a vibrant golden olive oil, garnished with crispy sage leaves and toasted pine nuts. Bright, clean, natural daylighting from a window, soft shadows, overhead angled shot (45 degrees), crisp focus, professional food styling, vibrant colors.</p>
+      </div>
+
+      <div class="model-gallery">
+        <div class="model-card won">
+          <div class="mimg"><span class="rank">1</span><img src="Compressed/Pantryhub/eval-1st.jpg" alt="Winning image: real window daylight, teardrop pine nuts, translucent spinach pasta" loading="lazy" /></div>
+          <div class="mbody">
+            <div class="mname">Z-Image-Turbo INT8</div>
+            <div class="mid">ZImageTurbo_INT8</div>
+            <div class="mcost">$0.006329 / image</div>
+            <p class="mnote">Nails the window daylight (you can see the window frame in the background), real teardrop <b>pine nuts</b>, and the pasta looks translucent and real.</p>
+            <span class="mverdict green">Shipped</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="mimg"><span class="rank">2</span><img src="Compressed/Pantryhub/eval-2nd.jpg" alt="Second place: pine nuts right but flat white studio lighting and uniform pasta" loading="lazy" /></div>
+          <div class="mbody">
+            <div class="mname">FLUX.2 Klein 4B BF16</div>
+            <div class="mid">FLUX.2-Klein-4B-BF16</div>
+            <div class="mcost">$0.003672 / image</div>
+            <p class="mnote">White plate and pine nuts right, but the light is flat studio white instead of window daylight, and the pasta looks a bit uniform and plasticky.</p>
+            <span class="mverdict yellow">Runner-up</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="mimg"><span class="rank">3</span><img src="Compressed/Pantryhub/eval-3rd.jpg" alt="Third place: chopped walnuts instead of pine nuts and herb flecks in the dough" loading="lazy" /></div>
+          <div class="mbody">
+            <div class="mname">FLUX.1 Schnell 12B NF4</div>
+            <div class="mid">FLUX.1-Schnell-12B-NF4</div>
+            <div class="mcost">$0.001909 / image</div>
+            <p class="mnote">Pretty, and the cheapest by far. But it drew chopped <b>walnuts</b> instead of pine nuts and mixed herb flecks into the dough that nobody asked for.</p>
+            <span class="mverdict yellow">Cheap fallback</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="mimg"><span class="rank">4</span><img src="Compressed/Pantryhub/eval-4th.jpg" alt="Fourth place: whole peanuts, thick pooled oil, and harsh light" loading="lazy" /></div>
+          <div class="mbody">
+            <div class="mname">Z-Anime Distill 8-Step INT8</div>
+            <div class="mid">ZAnimeDistill_8Step_INT8</div>
+            <div class="mcost">$0.006329 / image</div>
+            <p class="mnote">Whole <b>peanuts</b> instead of pine nuts, oil pooled like thick soup, and harsh light. An anime model doing photoreal food, and it shows.</p>
+            <span class="mverdict red">Rejected</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-matrix">
+        <div class="row head"><span>Model</span><span>Cost / image</span><span>Ingredient check</span><span>Verdict</span></div>
+        <div class="row"><span class="feat">Z-Image-Turbo INT8</span><span>$0.006329</span><span>Pine nuts ✓ · window light ✓</span><span class="flag green">Chosen</span></div>
+        <div class="row"><span class="feat">FLUX.2 Klein 4B BF16</span><span>$0.003672</span><span>Pine nuts ✓ · light too flat</span><span class="flag yellow">Runner-up</span></div>
+        <div class="row"><span class="feat">FLUX.1 Schnell 12B NF4</span><span>$0.001909</span><span>Walnuts ✗</span><span class="flag yellow">Fallback</span></div>
+        <div class="row"><span class="feat">Z-Anime Distill 8-Step</span><span>$0.006329</span><span>Peanuts ✗ · harsh light</span><span class="flag red">Rejected</span></div>
+        <div class="row"><span class="feat">Gemini 2.5 Flash Image</span><span>$0.039</span><span>Not tested: 6× the winner's price</span><span class="flag red">Priced out</span></div>
+      </div>
+
+      <p><b>The call.</b> Z-Image-Turbo INT8 won on accuracy and is the model in production: the repo pins <code>PAINTER_MODEL = "ZImageTurbo_INT8"</code> at 1024×768, 8 steps. Wrong garnish on a recipe card is a trust bug, so the cheapest model didn't win. But FLUX.1 Schnell stays on the bench as a documented fallback: it's 3.3× cheaper and its only failure was the nuts.</p>
+      <p><b>Going outside Google saved 84% on this line.</b> Google's own image model costs $0.039 per image, six times the winner. At 300 images a month that's $11.70 versus $1.90 per user. Staying inside one vendor's ecosystem would have quietly wrecked the economics.</p>
+      <p><b>Two production details.</b> The image model never gets the raw dish name: the painter first asks Gemini, with web search, what the finished dish actually looks like, then paints from that description, so unfamiliar dishes don't turn into guesses. And the prompt bans "scattered ingredients," added after early runs kept littering plates with raw onions and flour that weren't in the recipe.</p>
+      <p class="cs-stack-note">The winner's identity is verified from the repo. The other three labels are reconstructed from my eval notes against each model's look and price.</p>
+    </div>
+
+    <!-- ============ 09 COSTS ============ -->
+    <div class="cs-sec" id="costs">
+      <h3><span class="sec-num">09</span>What one user costs me a month</h3>
+      <p>An AI app lives or dies on what each user costs to serve, so I priced a full month for one heavy paying user, line by line, at the published API rates. Two findings shaped the whole product: the language model is nearly free, and the two expensive things are ones the user never sees.</p>
+
+      <div class="assume">
+        <h4>The assumptions, stated up front</h4>
+        <div class="arow"><span>Cook sessions a month (surveys put most Americans at 4 to 6 home-cooked dinners a week; I model 5)</span><b>20</b></div>
+        <div class="arow"><span>Voice used on every single cook (worst case on purpose)</span><b>100%</b></div>
+        <div class="arow"><span>Session length ~30 min; you speak ~4 min of it, the chef ~6 min</span><b>30 min</b></div>
+        <div class="arow"><span>Menu of 10 recipes generated nightly, each with an image</span><b>300 / mo</b></div>
+        <div class="arow"><span>Capture or update events (weekly shop plus top-ups)</span><b>10 / mo</b></div>
+        <div class="arow"><span>Web searches fire only when the model decides it needs one</span><b>~4 / night</b></div>
+        <div class="arow"><span>Billing rate for voice, set by Google: 1 second of audio = 25 tokens, so 1 minute = 1,500 tokens</span><b>fixed</b></div>
+      </div>
+
+      <div class="receipt">
+        <div class="rhead">Built the obvious way · per user · per month</div>
+        <div class="rline"><span class="rname">Writing the nightly menu</span><span class="rval">$0.56</span><span class="rmath">30 nights × about 15K tokens of Gemini Flash Lite ≈ <code>$0.019 a night</code></span></div>
+        <div class="rline"><span class="rname">Checking dishes are real</span><span class="rval">$0.09</span><span class="rmath">one validation pass per night, small token counts</span></div>
+        <div class="rline"><span class="rname">Describing dishes for the painter</span><span class="rval">$0.09</span><span class="rmath">300 short calls ≈ <code>$0.0003 each</code></span></div>
+        <div class="rline"><span class="rname">Web searches (grounding)</span><span class="rval">$1.68</span><span class="rmath">~4 a night × 30 = 120 searches × <code>$0.014</code> · first 5,000 a month are free account-wide</span></div>
+        <div class="rline"><span class="rname">Painting 300 thumbnails</span><span class="rval">$1.90</span><span class="rmath">300 × <code>$0.006329</code></span></div>
+        <div class="rline"><span class="rname">Voice: mic streaming all 30 min</span><span class="rval hot">$2.70</span><span class="rmath">20 cooks × 45K tokens (every minute billed, silence included) × <code>$3 / 1M</code></span></div>
+        <div class="rline"><span class="rname">Voice: the chef speaking</span><span class="rval">$2.16</span><span class="rmath">20 cooks × ~6 min of speech = 9K tokens × <code>$12 / 1M</code> · spoken output costs 4× input</span></div>
+        <div class="rline"><span class="rname">Voice: re-reading the conversation</span><span class="rval hot">$1.60</span><span class="rmath">each reply re-reads the session so far, and it grows with length · the roughest line in this model</span></div>
+        <div class="rline"><span class="rname">Chat cooking + odds and ends</span><span class="rval">$0.10</span><span class="rmath">small token counts across 20 sessions</span></div>
+        <div class="rline"><span class="rname">Reading pantry photos</span><span class="rval">$0.11</span><span class="rmath">10 events × ~3 photos × <code>$0.0037</code> · the rate from my own benchmark</span></div>
+        <div class="rline rtotal"><span class="rname">Total, built the obvious way</span><span class="rval">$10.99</span><span class="rmath">against $14.99 a month: I keep $4.00. A 27% margin.</span></div>
+      </div>
+
+      <div class="margin-call">
+        <div class="mc bad">
+          <div class="mc-lbl">Built the obvious way</div>
+          <div class="mc-num">27%</div>
+          <div class="mc-sub">$10.99 to serve a $14.99 user. Four dollars left over, before anything else costs money. Not a business.</div>
+        </div>
+        <div class="mc">
+          <div class="mc-lbl">Where the money goes</div>
+          <div class="mc-num">92%</div>
+          <div class="mc-sub">Voice is $6.46 and images plus search are $3.67. Together that's $10.13 of the $10.99.</div>
+        </div>
+        <div class="mc good">
+          <div class="mc-lbl">After fixing voice</div>
+          <div class="mc-num">49%</div>
+          <div class="mc-sub">$7.65 to serve the same user, same product. The fix is below.</div>
+        </div>
+      </div>
+
+      <p><b>The fix: stop paying for silence.</b> The obvious voice build streams the microphone for the whole cook, and Google bills every second that arrives, silence included. That's the $2.70 line. The fix is to detect speech on the phone and only send audio while someone is actually talking, about 4 minutes out of 30. Same experience for the user, and $2.70 becomes $0.36. The re-reading line shrinks too, because there's less audio history to re-read.</p>
+      <p><b>What I chose not to fix.</b> Thumbnails and web searches stay at full price on purpose. Every user's menu is built from their own pantry, so the dishes are close to unique per person. Sharing images between users sounds clever, but real matches would be rare, and I'm not going to count savings I can't prove.</p>
+
+      <div class="receipt">
+        <div class="rhead">After the voice fix · per user · per month</div>
+        <div class="rline"><span class="rname">Voice: only actual speech sent</span><span class="rval cool">$0.36</span><span class="rmath">~4 min a cook instead of 30</span></div>
+        <div class="rline"><span class="rname">Voice: the chef speaking</span><span class="rval">$2.16</span><span class="rmath">unchanged. This one IS the product.</span></div>
+        <div class="rline"><span class="rname">Voice: re-reading, after trimming</span><span class="rval cool">$0.60</span><span class="rmath">shorter history, trimmed before each reply</span></div>
+        <div class="rline"><span class="rname">Web searches</span><span class="rval">$1.68</span><span class="rmath">unchanged: every user's menu is their own</span></div>
+        <div class="rline"><span class="rname">Painting 300 thumbnails</span><span class="rval">$1.90</span><span class="rmath">unchanged, same reason</span></div>
+        <div class="rline"><span class="rname">Everything else</span><span class="rval">$0.95</span><span class="rmath">menu writing, fact checks, dish notes, chat, photos</span></div>
+        <div class="rline rtotal"><span class="rname">Total, after the voice fix</span><span class="rval">$7.65</span><span class="rmath">against $14.99: I keep $7.34. A 49% margin.</span></div>
+      </div>
+
+      <p><b>What's built versus planned, honestly:</b> the voice service already trims history before each reply. The on-phone speech gating is the roadmap. And the "re-reading" line is an estimate by design; the beta exists partly to replace it with logged numbers.</p>
+      <p><b>The line that can't shrink is the right one.</b> After the fix, the biggest single cost left is the chef actually speaking, $2.16. That's not waste. That's the product. When your biggest cost is the thing users love you for, the model is healthy.</p>
+      <p><b>A lever held in reserve.</b> Everything above assumes a heavy user: 20 voice cooks a month, roughly 10 hours of sessions. The one thing that could still break the math is the extreme tail, someone running voice for hours every single day, because every spoken minute has a real cost. So Premium voice carries a fair-use line set at <b>double the heavy user</b>, about 40 cooks or 20 hours a month, before the app slows anyone down. Almost nobody will ever touch it. But it means the worst possible user costs about $10.80 to serve against $14.99, still a 28% margin. The margin can be squeezed. It cannot go negative.</p>
+    </div>
+
+    <!-- ============ 10 PRICING ============ -->
+    <div class="cs-sec" id="pricing">
+      <h3><span class="sec-num">10</span>What the cost sheet says about pricing</h3>
+      <p>The cost sheet hands you the packaging: charge for the expensive thing, give away the cheap thing that builds the habit. The nightly menu is what brings people back and it costs cents. Voice is what people rave about and it's the biggest line. So the menu is free and voice is the upgrade.</p>
+      <div class="tiers">
+        <div class="tier">
+          <div class="t-name">Free</div>
+          <div class="t-price">$0</div>
+          <div class="t-line">Dinner, solved. Every day.</div>
+          <ul>
+            <li><span class="ck">✓</span><span>Unlimited pantry capture: photo, barcode, voice</span></li>
+            <li><span class="ck">✓</span><span>Daily menu, up to <b>5 recipes a day</b>, real generated photos on every card</span></li>
+            <li><span class="ck">✓</span><span>Full chat cooking: steps, timers, swaps</span></li>
+            <li><span class="ck">✓</span><span>Auto-deduction and the Kitchen streak</span></li>
+            <li><span class="cx">✕</span><span>No voice mode</span></li>
+          </ul>
+          <div class="t-cogs"><span>Costs me about</span><b>$2.60 / user / mo</b></div>
+        </div>
+        <div class="tier premium">
+          <div class="t-name">Premium</div>
+          <div class="t-price">$14.99<span> / mo</span></div>
+          <div class="t-line">The whole day, and a chef who talks back.</div>
+          <ul>
+            <li><span class="ck">✓</span><span>Everything in Free</span></li>
+            <li><span class="ck">✓</span><span>The full menu: all four meals, ~10 recipes a day</span></li>
+            <li><span class="ck">✓</span><span><b>Voice mode</b>: hands-free guided cooking, fair use up to ~20 hours a month</span></li>
+            <li><span class="ck">✓</span><span>Custom requests: ask the chef for any dish</span></li>
+            <li><span class="ck">✓</span><span>Elaborate difficulty mode</span></li>
+          </ul>
+          <div class="t-cogs"><span>Costs me about</span><b>$7.65 / user / mo</b></div>
+        </div>
+      </div>
+      <p>The free tier isn't crippled. It fully solves dinner, which is the job most people came for, and five recipes a day is a real menu. What's gated is the expensive delight (voice) and the breadth (four meals a day), which is exactly what the cost sheet says to gate.</p>
+    </div>
+
+    <!-- ============ 11 NORTH STAR ============ -->
+    <div class="cs-sec" id="northstar">
+      <h3><span class="sec-num">11</span>North star</h3>
+      <div class="northstar">
+        <div class="ns-lbl">North-star metric</div>
+        <div class="ns-metric">Cooked meals per active user, per week</div>
+        <p class="ns-why">It's the only number that proves the loop closed. A scan that never becomes a cooked meal saved nothing. A cooked meal is food used instead of wasted, a habit reinforced, and the one event that makes tomorrow's menu smarter. Downloads don't move it. A working loop does.</p>
+        <div class="ns-inputs">
+          <span>Input · capture completion</span>
+          <span>Input · menu to cook rate</span>
+          <span>Input · cook completion</span>
+          <span>Guardrail · cost per active user</span>
+        </div>
+      </div>
+      <p>Each input maps to one epic, on purpose. Capture completion tests Epic 1. Menu-to-cook tests Epic 3. Cook completion tests Epic 4. And deduction quality, Epic 5, is what keeps the next day's menu honest. If the north star stalls, this tree says which epic broke. The cost guardrail sits next to it because in an AI product, a north star you can't afford isn't a strategy.</p>
+    </div>
+
+    <!-- ============ 12 GTM ============ -->
+    <div class="cs-sec" id="gtm">
+      <h3><span class="sec-num">12</span>Go-to-market</h3>
+      <p>The whole plan leans on one ten-second demo: <b>"one photo of my receipt logged my entire shop."</b> That's the moment that separates PantryChef from every typing-based pantry app, so every channel leads with it. In order:</p>
+      <div class="gtm-line">
+        <div class="gtm-phase now">
+          <div class="gtm-when">Phase 0 · now</div>
+          <h4>Closed beta with 50 real kitchens</h4>
+          <p>Not for growth. For the numbers the whole model rests on: do people really cook five nights a week with it, does capture survive kitchens that aren't mine, and what does a voice session actually cost? The beta replaces my estimates with logs before a dollar goes into marketing.</p>
+          <span class="gtm-kpi">Exit gate · median 3+ cooked meals a week by week 3</span>
+        </div>
+        <div class="gtm-phase">
+          <div class="gtm-when">Phase 1 · launch</div>
+          <h4>The receipt demo, where the guilt already lives</h4>
+          <p>Short videos on the exact pain: "here's what died in my fridge this week," ending on the receipt scan. Food-waste and budget-cooking creators already have this exact audience. Organic first; pay only the creators who prove they convert.</p>
+          <span class="gtm-kpi">KPI · install to first cooked meal within 48 hours</span>
+        </div>
+        <div class="gtm-phase">
+          <div class="gtm-when">Phase 2 · compound</div>
+          <h4>Own the searches people already type</h4>
+          <p>App Store search terms like "reduce food waste," "what can I cook with," and "pantry tracker." Low competition, and the person searching already feels the pain. This is the cheapest install there is, and it runs underneath everything else.</p>
+          <span class="gtm-kpi">KPI · organic share of installs</span>
+        </div>
+        <div class="gtm-phase">
+          <div class="gtm-when">Phase 3 · loop</div>
+          <h4>Make the payoff shareable</h4>
+          <p>"You used 15 ingredients this month" already lives in the Kitchen tab, and it's the kind of stat people actually want to share. Turned into a share card, it advertises the outcome, not the app, and it closes an organic loop that paid ads can't buy.</p>
+          <span class="gtm-kpi">KPI · installs per share</span>
+        </div>
+      </div>
+      <p><b>When the upgrade sells itself.</b> Free solves dinner. The upgrade prompt fires the first time a free user asks the chef a question with messy hands. That's the moment voice stops being a feature on a pricing page and becomes the thing they need right now.</p>
+    </div>
+
+    <!-- ============ 13 LEARNINGS ============ -->
+    <div class="cs-sec" id="learned">
+      <h3><span class="sec-num">13</span>What it taught me</h3>
+      <p><b>When the product is a loop, features get judged by the loop, not by themselves.</b> Scanning barcodes one at a time is a perfectly fine feature that would have quietly killed the product. The only question that mattered was whether a decision made capture, curation, cooking, or deduction stronger.</p>
+      <p><b>The seams between agents are where quality lives.</b> One chef in front, four agents behind, joined by a single writer that even hands back the cleanup list after a swap. That contract, not any one agent, is what makes switching from chat to voice mid-cook feel like nothing happened.</p>
+      <p><b>Price the plumbing before your gut prices the product.</b> I assumed the language model would be the big cost. It's cents. The real money was in an open microphone billing me for silence, and finding that early is what wrote the pricing page. The cost sheet decided the business model. My intuition would have gotten it wrong.</p>
+    </div>
+
+  </div>
+
+  <div class="cs-next">
+    <div class="tag-pill">More side projects </div>
+    <div style="margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
+      <a class="btn btn-ink" href="project-productsense.html">Productsense <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="project-debatly.html">Debatly <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="index.html#projects">All projects <span class="arr">→</span></a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <span>© <span id="yr"></span> <b>Ashwin Thomas Paul</b> · designed and prototyped by me.</span>
+</footer>
+
+<script src="js/grainient.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

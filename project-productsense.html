@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f2f1ec" />
+<style>html { background-color: #f2f1ec; }</style>
+<title>Productsense · AI Build · Ashwin Thomas Paul</title>
+<meta name="description" content="Maya, an AI product manager for users who can build but can't product. Eight months, three architectures: a multi-agent group chat, a five-phase pipeline, and the deep-agent harness plus MCP loop that shipped." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="filmgrain" aria-hidden="true"></div>
+<div class="page-grain" id="grain-page" aria-hidden="true"></div>
+
+<header class="site-head">
+  <a class="wordmark" href="index.html">Ashwin Thomas Paul</a>
+  <nav class="pill-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="index.html#projects" class="active">Projects</a>
+    <a href="index.html#story">Story</a>
+    <a href="index.html#work">Work</a>
+    <a href="filmmaking.html">Film</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="btn btn-ink head-cta" href="assets/resume.pdf" download>Résumé <span class="arr">↓</span></a>
+</header>
+
+<main>
+
+  <section class="cs-hero">
+    <div class="wrap" style="position:relative;z-index:1">
+      <div class="tag-pill rise d1">Side project · research turned product</div>
+      <h1 class="rise d2" style="margin-top:22px"><img class="cs-hero-logo" src="Compressed/productsense/productsense-logo.png" alt="Productsense" /></h1>
+      <p class="cat rise d3">An AI product manager for users who can build, but can't <i>product</i>.</p>
+      <div class="cs-hero-img rise d4">
+        <div class="ph-real" style="aspect-ratio:16/9"><img src="Compressed/productsense/thumbnail.jpg" alt="Productsense in session: chatting with Maya on the left, the live sprint board on the right" /></div>
+      </div>
+
+      <div class="cs-strip rise d5">
+        <span class="chip solid"><b>Solo build</b> · PM, design, code</span>
+        <a class="chip" href="https://productsense-web-574334046632.us-east1.run.app" target="_blank" rel="noopener"><b>Open the live app</b> ↗</a>
+        <a class="chip" href="https://github.com/majortom-39/productsense" target="_blank" rel="noopener"><b>View code on GitHub</b> ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cs-body">
+
+    <p class="lede">A new kind of user can build anything with a coding agent, but nobody taught them what to build. So they build the wrong thing, beautifully, and ship it to silence. Productsense is Maya: the product manager they never had.</p>
+
+    <nav class="toc-bar" aria-label="On this page">
+      <a href="#origin"><span class="n">01</span> Where it started</a>
+      <a href="#firstbuild"><span class="n">02</span> The first build</a>
+      <a href="#frameworks"><span class="n">03</span> Framework wars</a>
+      <a href="#user"><span class="n">04</span> Finding the user</a>
+      <a href="#stripdown"><span class="n">05</span> The strip-down</a>
+      <a href="#oneagent"><span class="n">06</span> One agent</a>
+      <a href="#mcp"><span class="n">08</span> The MCP loop</a>
+      <a href="#evals"><span class="n">09</span> Evaluation</a>
+    </nav>
+
+    <!-- ============ 01 ORIGIN ============ -->
+    <div class="cs-sec" id="origin">
+      <h3><span class="sec-num">01</span>Where it started</h3>
+      <p>This began as an independent research study with my professor and mentor, <b>Dr. Ashim Bose</b>. The brief was one line: explore how AI agents could do product management. It ran for the better part of eight months, and it ended somewhere neither of us drew on day one: a live product with a name, a user, and a coding agent plugged into it.</p>
+      <p>Two honest things about the start. I had read plenty about agents but had never <i>built</i> one. And I had no user group, no customer profile, nothing. I dove straight into the technology, and I underestimated how deep that rabbit hole went: multi-agent orchestration, agent pipelines, group-chat simulation, deep-agent harnesses, loop engineering. I'm glad I fell in. Everything I now know about building with agents came out of that hole.</p>
+      <p>That second confession matters, because it comes back at the end of this page.</p>
+    </div>
+
+    <!-- ============ 02 FIRST BUILD ============ -->
+    <div class="cs-sec" id="firstbuild">
+      <h3><span class="sec-num">02</span>The first build: a PM department in a group chat</h3>
+      <p>My first idea came from watching how real product teams work: expertise talking to expertise in a Slack channel. So I staffed one. I broke the typical PM workforce into individual agents, a user researcher, a competitive analyst, a market researcher, and so on, and put them in a simulated group chat to collaborate toward one goal.</p>
+      <p>Then I gave it structure. A <b>Vision</b> kickoff, followed by <b>five phases</b>: Discovery &amp; Research, Strategy, Solution, Prioritization, and PRD. Each phase had a <b>supervisor agent</b> accountable for its output, with three or four specialists under it. When a phase finished its report, the report passed to the next phase's supervisor, like a real handoff between teams. Run all five and you got five full reports, ending in a complete PRD.</p>
+      <div class="shot fit"><img src="Compressed/productsense/workforce-v2.png" alt="The original org chart: a Vision kickoff plus five phases, each with a supervisor, a bench of specialist agents, and a deliverable report" loading="lazy" /></div>
+      <p class="shot-cap"><b>The actual org chart I drew.</b> Vision hands a project brief to Discovery &amp; Research, whose Director runs a Market Researcher, a Competitive Intelligence Analyst, and a User Researcher, and so on down the line: Strategic Framework, Feature Definitions, Prioritized Roadmap, Complete PRD. Five phases, five reports.</p>
+
+    </div>
+
+    <!-- ============ 03 FRAMEWORKS ============ -->
+    <div class="cs-sec" id="frameworks">
+      <h3><span class="sec-num">03</span>Three frameworks to get one good conversation</h3>
+      <p>The architecture was fixed. The problem was making agents actually <i>talk</i> like a team, and it turned out the framework choice mattered more than any prompt I wrote.</p>
+      <div class="shot"><img src="Compressed/productsense/deterministic-test.gif" alt="Early single-phase testing, comparing deterministic and non-deterministic agent-to-agent pathways" loading="lazy" /></div>
+      <p class="shot-cap"><b>January, the earliest surviving test, at 2× speed.</b> Before wiring all five phases, I isolated one and ran it over and over, deterministic pathways against non-deterministic ones. This clip is why I stopped believing rigid pathways could fake a real conversation, and why the framework hunt below happened at all.</p>
+      <div class="cs-matrix">
+        <div class="row head"><span>Framework</span><span>What it gave me</span><span>Where it broke</span><span>Call</span></div>
+        <div class="row"><span class="feat">LangGraph, multi-agent</span><span>Full control of the graph</span><span>Rigid turn-taking. Context dropped between turns, replies went missing, chats stalled</span><span class="flag red">Moved on</span></div>
+        <div class="row"><span class="feat">CrewAI</span><span>Noticeably faster</span><span>Deterministic to a fault. Conversations still died mid-run</span><span class="flag red">Moved on</span></div>
+        <div class="row"><span class="feat">Microsoft AutoGen</span><span>Group chat as a native feature</span><span>Organic, conversational, and the runtime held for a full run</span><span class="flag green">Picked it</span></div>
+      </div>
+      <p>The thing I was chasing was a natural group chat, and AutoGen was built around exactly that. Conversations stopped dying, turn-taking felt organic, and long runs completed. So I standardized on it, wired all five phases through it, and tuned the knowledge base and process definitions across repeated discovery runs.</p>
+      <div class="shot"><img src="Compressed/productsense/phases-5.gif" alt="The full five-phase pipeline running on AutoGen, February build, at 2x speed" loading="lazy" /></div>
+      <p class="shot-cap"><b>February: all five phases running on AutoGen</b>, at 2× speed. It worked. It was also enormous, and that becomes the story.</p>
+
+      <p>Keep the AutoGen decision in mind, though. Being right for the group chat didn't make the group chat right.</p>
+    </div>
+
+    <!-- ============ 04 THE USER ============ -->
+    <div class="cs-sec" id="user">
+      <h3><span class="sec-num">04</span>The user I hadn't looked for</h3>
+      <p>Months in, I still couldn't answer the basic question: who is this for? The irony was not lost on me. I was building a tool whose whole job is making people do discovery before they build, and I had skipped discovery. I built first and asked who wanted it later.</p>
+      <p>When I finally asked, the answer wasn't where I expected. Enterprises don't need an AI PM; they have a PM org, and at that scale the objectives and stakes are completely different. But I noticed who did need one: <b>me</b>. I was vibe coding my own side projects, drifting, building without a focused plan. Productsense itself had no focused build. I was the customer, sitting inside the problem the product was supposed to solve.</p>
+      <p>And I wasn't alone. Vibe coding has done to shipping software what YouTube did to video: it democratized it, and a creator economy is forming around it. Solo users and two-person teams shipping apps for income, tools for vibe coders, platforms for vibe coders, communities where they help each other. I was already part of that community without noticing. So I did the discovery properly, late: search-trend digging, deep dives through Threads and community forums, asking builders directly. The appetite was real.</p>
+      <div class="icp-hero balanced" style="margin:24px 0">
+        <div class="icp-art">
+          <img src="Compressed/productsense/icp-builder.png" alt="Illustration of a solo builder at a laptop" />
+        </div>
+        <div class="icp-rows">
+        <div class="irow"><b>Who it's for</b><p>Solo and two-to-three person users who build with coding agents. It's aimed at non-technical first-timers; experienced shippers are explicitly out of scope for v1.</p></div>
+        <div class="irow"><b>The pain</b><p>"I can build anything with Claude Code or Cursor. I just don't know what to build, for whom, or what to cut."</p></div>
+        <div class="irow"><b>Who it's not for</b><p>Enterprises and big tech. They already have the workforce, and at their scale the impact, expectations, and objectives are a different product entirely.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 05 STRIP-DOWN ============ -->
+    <div class="cs-sec" id="stripdown">
+      <h3><span class="sec-num">05</span>What a vibe coder doesn't need</h3>
+      <p>Knowing the user let me finally cut. A vibe coder doesn't care about TAM and SAM. They aren't pitching investors, so they don't need a billion-dollar market story. They can ship a product for less than a hundred dollars, and a hundred paying customers is a win. Most of my five-phase research depth was answering questions my user never asks.</p>
+      <p>So five phases became three:</p>
+      <div class="dag-tier3" style="margin:24px 0">
+        <div class="dnode">
+          <h5>Discovery</h5>
+          <div class="dmeta">what's actually out there</div>
+          <p>What users are saying, what competitors exist, what solutions already ship, and where the frictions live.</p>
+        </div>
+        <div class="dnode">
+          <h5>Planning</h5>
+          <div class="dmeta">what to build, honestly scoped</div>
+          <p>The solutions that answer those frictions, and the feature cut that makes a minimum viable launch.</p>
+        </div>
+        <div class="dnode">
+          <h5>Sprint</h5>
+          <div class="dmeta">a board a coding agent can take</div>
+          <p>The build broken into sprint plans, sized and worded for vibe coding.</p>
+        </div>
+      </div>
+      <div class="shot"><img src="Compressed/productsense/phases-3.gif" alt="The strip-down build running, April, at 2x speed: five phases cut to three" loading="lazy" /></div>
+      <p class="shot-cap"><b>April: the strip-down build</b>, at 2× speed. The same engine, cut from five phases to three, aimed at one user instead of everyone.</p>
+      <p>Scope-cutting is the exact discipline the product preaches, applied to itself. That felt right.</p>
+    </div>
+
+    <!-- ============ 06 ONE AGENT ============ -->
+    <div class="cs-sec" id="oneagent">
+      <h3><span class="sec-num">06</span>Then I deleted my favorite part</h3>
+      <p>As the product got real, the group chat stopped earning its keep. AutoGen made agents talk well, and that was the problem: they talked a lot. Tokens burned on back-and-forth that no user would ever see, agents agreeing with each other, restating, handing off. The simulation was the most impressive thing I'd built, and it was mostly overhead.</p>
+      <p>The question that killed it: if all the user needs is synthesized judgment, why simulate a meeting? Why not <b>one product manager who is genuinely good, holding the tools herself?</b> That question sent me into deep-agent harnesses and loop engineering, and the answer became the shipped architecture:</p>
+      <p><b>Maya.</b> One agent, and only one. She runs on a LangGraph <code>deepagents</code> harness with <b>Gemini 3.1 Pro and dynamic thinking</b>, and she holds every tool herself: live web research over Firecrawl, file ingestion for whatever the user attaches, the GitHub digest, and about thirty domain tools that write into the product record. The supervisors are gone. The researcher personas are gone. The group chat is gone. Maya thinks, calls a tool, and moves, and she is the only thing running and the only voice the user ever hears.</p>
+      <p>There's a full-circle joke in here: the harness is LangGraph, the first framework I abandoned. It was wrong for simulating a committee and it's right for running one deep agent. Frameworks aren't good or bad. They're good or bad <i>for the interaction you're building</i>.</p>
+      <p>Her research has one house rule: <b>lead with real voices</b>. Reddit threads and their comments, the one-to-three-star app reviews, community forums. Marketing pages last. The unmet need lives in complaints, not in vendor copy.</p>
+
+      <span class="d-label">The shipped architecture, end to end</span>
+      <div class="arch2">
+        <div class="a-doors">
+          <div class="fnode">
+            <h5>The user's browser</h5>
+            <div class="fid">REST + live SSE stream</div>
+            <p>Chat plus the dashboard. Maya's replies stream token by token, with tool chips and artifact hints updating the tabs live.</p>
+          </div>
+          <div class="fnode">
+            <h5>Coding agent</h5>
+            <div class="fid">Claude Code · Cursor · any MCP client</div>
+            <p>Pulls sprint tasks, guardrails, and PRD context, and reports progress back. It never touches Maya's chat loop.</p>
+          </div>
+        </div>
+        <div class="a-doorarrows"><span>SSE stream ↓</span><span>/mcp ↓</span></div>
+
+        <div class="abox">
+          <div class="abox-t">FastAPI backend · one Cloud Run service · scale to zero</div>
+          <div class="a-two">
+            <div class="fnode">
+              <h5>MayaSession, the turn runner</h5>
+              <div class="fid">session.py · detached turns · 15s heartbeat</div>
+              <p>Every message becomes a detached task that survives the browser dropping the connection. After each turn it prunes raw search results from history, so Maya keeps the synthesis and sheds the bulk.</p>
+            </div>
+            <div class="fnode">
+              <h5>GitHub integration</h5>
+              <div class="fid">OAuth · Fernet-encrypted token · repo digest</div>
+              <p>Ingests the linked repo's README, package files, and file tree into a digest Maya loads every turn. Deliberately narrow: no webhooks, no per-file reads.</p>
+            </div>
+          </div>
+          <div class="dag-down">↓</div>
+
+          <div class="abox inner">
+            <div class="abox-t">The deep agent · deepagents on LangGraph</div>
+            <div class="fnode hot amaya">
+              <h5>Maya · Gemini 3.1 Pro</h5>
+              <div class="fid">THE ONLY AGENT · high thinking</div>
+              <p>One brain. Thinks first, then acts.</p>
+            </div>
+            <div class="dag-split">she holds every tool herself</div>
+            <div class="a-three">
+              <div class="fnode tool">
+                <h5>Ask the user</h5>
+                <div class="fid">ask_founder · the interrupt</div>
+                <p>Pauses the turn and puts a real decision to the user. The turn resumes when they answer, even days later.</p>
+              </div>
+              <div class="fnode tool">
+                <h5>Domain tools · ~30</h5>
+                <div class="fid">create_artifact · write_prd_section · create_sprint · log_decision …</div>
+                <p>Everything that populates the dashboard. All of it writes to Supabase.</p>
+              </div>
+              <div class="fnode tool">
+                <h5>Research tools · 3</h5>
+                <div class="fid">web_search · reddit_research · crawl_website</div>
+                <p>Firecrawl underneath, capped at 5 searches a turn. The standing rule: think first, search only when a claim needs real-world backing.</p>
+              </div>
+            </div>
+            <div class="dag-split">the harness underneath</div>
+            <div class="a-three">
+              <div class="fnode plumb">
+                <h5>Summarization</h5>
+                <div class="fid">~890k token trigger</div>
+                <p>Compacts history before the context window fills.</p>
+              </div>
+              <div class="fnode plumb">
+                <h5>Checkpointer</h5>
+                <div class="fid">Postgres · saves every turn</div>
+                <p>State lands in Supabase each turn. It's how an interrupted turn resumes.</p>
+              </div>
+              <div class="fnode plumb">
+                <h5>Skills + memory</h5>
+                <div class="fid">product-arc SKILL.md · AGENTS.md</div>
+                <p>Loaded read-only. Disk writes are denied by permission.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dag-split">five external services, one job each</div>
+        <div class="a-ext">
+          <div class="fnode ext"><h5>Supabase</h5><div class="fid">data · auth · files</div></div>
+          <div class="fnode ext"><h5>Vertex AI</h5><div class="fid">the Gemini models</div></div>
+          <div class="fnode ext"><h5>Firecrawl</h5><div class="fid">search + scrape</div></div>
+          <div class="fnode ext"><h5>LangSmith</h5><div class="fid">a trace of every run</div></div>
+          <div class="fnode ext"><h5>GitHub</h5><div class="fid">digest in · progress back</div></div>
+        </div>
+        <div class="alegend">
+          <span><span class="sq agent"></span> the agent</span>
+          <span><span class="sq tool"></span> her tools</span>
+          <span><span class="sq plumb"></span> the harness</span>
+          <span><span class="sq ext"></span> external services</span>
+        </div>
+      </div>
+      <p style="margin-top:22px">The whole thing rides on one Cloud Run service: scale to zero when idle, CPU kept allocated mid-turn so a dropped connection can never freeze a running turn. And the repo digest is a deliberate scope call: Maya gets the shape of the codebase so her advice is grounded in real files, while file-level detail stays where it belongs, with the coding agent in the IDE.</p>
+    </div>
+
+    <!-- ============ 07 THE PRODUCT ============ -->
+    <div class="cs-sec" id="product">
+      <h3><span class="sec-num">07</span>What the user sees</h3>
+      <p>You talk to Maya in plain English: "I want to build X," or "I shipped X and nobody's using it." The workspace around the chat has five tabs: <b>Discovery, Screens, PRD, Decisions, and Sprint</b>. The hero image at the top of this page is a real session, and it's a personal favorite: that's Maya planning a streamer toolkit <b>for Debatly</b>, my other project, then asking whether she should hand it to the coding agent.</p>
+      <p>Three decisions under the hood do most of the work:</p>
+      <p><b>A coherence graph, not a document dump.</b> Every artifact Maya produces, the problem, the users, each friction, the positioning, the PRD, every sprint task, is a node wired to the nodes it came from. Change something upstream and everything downstream gets flagged for review. The database is the source of truth, not the chat scrollback, which is why the record survives new sessions and long builds.</p>
+      <p><b>Living artifacts.</b> Nothing is write-once. Maya edits cards, supersedes stale ones, resolves open questions, and keeps the record coherent while the product changes under it. Sprint tasks carry the fields a coding agent actually needs: an acceptance line ("done when"), a verification step, an explicit <i>do not</i> list, and the PRD context they trace back to.</p>
+      <p><b>One move per turn.</b> Maya makes a single move, then hands the conversation back. She acknowledges you before she starts the work. She refuses "all of it" as a scope answer. No thirteen-hundred-line spec for a date picker.</p>
+      <p>Even the wireframes follow the discipline: the Screens tab renders greyscale layouts from a deterministic block language, not from model-generated HTML, so every screen comes out consistent and reviewable.</p>
+    </div>
+
+    <!-- ============ 08 MCP ============ -->
+    <div class="cs-sec" id="mcp">
+      <h3><span class="sec-num">08</span>Closing the loop: the sprint board is an MCP endpoint</h3>
+      <p>Here's where most tools would stop: export the plan as a markdown file, let the user paste it into their coding agent, wish them luck. I refused to ship that. A plan you paste is a plan that goes stale the moment the build starts.</p>
+      <p>So the sprint board itself is a <b>hosted MCP endpoint</b>. The user clicks once, gets a connect prompt with a per-project key, and pastes it into whatever coding agent they use: Claude Code, Codex, Cursor, anything MCP-capable. Zero install. The key is shown once, stored only as a hash, rotates on demand, and the app shows an honest last-seen dot for the connected agent.</p>
+      <div class="shot"><img src="Compressed/productsense/mcp-handshake.gif" alt="The first MCP handshake: a coding agent connecting to the Productsense sprint board" loading="lazy" /></div>
+      <p class="shot-cap"><b>The first handshake.</b> A coding agent connects to the board and pulls its context. This clip is the moment the whole research project became a product.</p>
+      <p>Once connected, the agent can pull the session context, the PRD, its tasks with their guardrails, update and complete work, and <b>ask Maya questions directly</b> from inside the coding chat. It can propose a task, which lands on the board flagged for Maya's review. When the sprint's done it files a build report and requests the next one. One rule is hard-coded: <b>agents never create sprints. Maya stays the planner.</b></p>
+      <p><b>Why this split matters.</b> Product thinking and code execution are different jobs with different context. Keeping research, decisions, and planning in Maya means the coding agent's expensive context stays lean and focused on the build. Start a fresh coding chat and nothing is lost, because the plan never lived in the chat. Two people, or two agents, can build from the same board.</p>
+      <div class="shot"><img src="Compressed/productsense/codex-mcp.jpg" alt="Codex explaining, from its own perspective, why the ProductSense sprint plan over MCP is useful" loading="lazy" /></div>
+      <p class="shot-cap"><b>The testimonial I didn't write.</b> I asked Codex, mid-build, whether Productsense was actually useful. Its answer: it's "a product compass, not a replacement for code inspection." It listed what it got: the actual goal, the target user, the north star, the current task, and the guardrails. When the coding agent can explain your product's value better than your landing page, the loop is real.</p>
+      <p><b>And GitHub closes the circle.</b> Connect the repo, and Productsense builds a digest: the stack, the feature surface, a plain-English summary of what the app does today. When the agent requests the next sprint, the repo re-syncs in the background, so <b>Maya plans sprint N+1 against what was actually built</b>, not what was planned. It's a sprint retrospective, automated.</p>
+
+      <span class="d-label">The build loop, end to end</span>
+      <div class="pipe">
+        <div class="pstep">
+          <div class="prail"><span class="pdot">1</span><span class="pline"></span></div>
+          <div class="pbody"><h5>Connect <code>one paste, zero install</code></h5><p>Copy the connect prompt into any MCP-capable coding agent. The per-project key is shown once and stored only as a hash.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">2</span><span class="pline"></span></div>
+          <div class="pbody"><h5>Pull</h5><p>The agent fetches the session context, the PRD, and its tasks, each with the acceptance line, the verification step, and the do-not list.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">3</span><span class="pline"></span></div>
+          <div class="pbody"><h5>Build</h5><p>The agent codes. It can ask Maya questions mid-build, and propose tasks that land on the board flagged for her review.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">4</span><span class="pline"></span></div>
+          <div class="pbody"><h5>Push</h5><p>Code lands on GitHub. The repo digest re-syncs: stack, feature surface, and a plain-English summary of what exists now.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">5</span><span class="pline"></span></div>
+          <div class="pbody"><h5>Report <code>request_next_sprint</code></h5><p>The agent files a build report and asks for the next sprint.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">6</span></div>
+          <div class="pbody hot"><h5>Re-plan</h5><p>Maya plans sprint N+1 with the user, grounded in what actually got built. Then the loop starts again at step 2. Agents never create sprints. Maya stays the planner.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 09 EVALS ============ -->
+    <div class="cs-sec" id="evals">
+      <h3><span class="sec-num">09</span>Benchmarks and battle scars</h3>
+      <p><b>The model choice got benchmarked, not vibed.</b> I A/B tested Maya on Gemini 3.1 Pro against 3.5 Flash: same scenario, identical setup. The bigger model completed cleanly <b>3 out of 3</b> runs against Flash's 2 out of 3, produced more complete output, and, the part I didn't expect, came out <b>about 35% cheaper per turn</b>. A better orchestrator wastes fewer steps, and wasted steps are where the tokens go. The benchmark script ships in the repo (<code>bench_compare.py</code>), so anyone can re-run it.</p>
+      <p><b>Live testing left scars, and each one became a design rule.</b> I've been handing the app to students in my college community and fixing what their sessions break:</p>
+      <div class="cs-matrix">
+        <div class="row head"><span>What broke</span><span>Why</span><span>The fix</span><span>The rule</span></div>
+        <div class="row"><span class="feat">Duplicate task IDs</span><span>Gemini fires tool calls in parallel; count-based IDs raced</span><span>Max-based IDs that retry on collision</span><span class="flag green">Design for parallel calls</span></div>
+        <div class="row"><span class="feat">One hallucinated reference crashed the whole turn</span><span>Graph wiring trusted model-provided node refs</span><span>A single safe chokepoint that skips bad refs instead of dying</span><span class="flag green">The graph survives the model</span></div>
+        <div class="row"><span class="feat">Every production request returned 400</span><span>One untyped list in a tool schema; Gemini rejects it</span><span>Typed every parameter, verified with a live call binding the full tool surface</span><span class="flag green">Schemas are contracts</span></div>
+      </div>
+      <p>The MCP bridge has its own end-to-end suite: <b>15 of 15 tests</b> across auth, the protocol round trip, the loop-closing effects, and key rotation. Every agent turn is traced in LangSmith, so when something goes wrong there's a recording, not a guess.</p>
+    </div>
+
+    <!-- ============ 10 STACK ============ -->
+    <div class="cs-sec" id="stack">
+      <h3><span class="sec-num">10</span>Tech stack</h3>
+      <div class="stack-rows">
+        <div class="srow">
+          <b>Frontend</b>
+          <div class="schips">
+            <span class="schip">React 18 · Vite</span>
+            <span class="schip">Tailwind · shadcn/ui</span>
+            <span class="schip">Block-DSL wireframe renderer</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Backend</b>
+          <div class="schips">
+            <span class="schip">Python 3.12 · FastAPI</span>
+            <span class="schip">Supabase Postgres · auth</span>
+            <span class="schip">Coherence graph over artifacts</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Agents</b>
+          <div class="schips">
+            <span class="schip"><code>deepagents</code> on LangGraph</span>
+            <span class="schip"><code>gemini-3.1-pro</code> · Maya, dynamic thinking</span>
+            <span class="schip">Firecrawl · web research</span>
+            <span class="schip">~30 domain tools + 3 research tools</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>The bridge</b>
+          <div class="schips">
+            <span class="schip">Hosted MCP · Streamable HTTP</span>
+            <span class="schip">Per-project keys · hash-stored · rotating</span>
+            <span class="schip">GitHub repo digest</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Infra</b>
+          <div class="schips">
+            <span class="schip">Google Cloud Run</span>
+            <span class="schip">Secret Manager</span>
+            <span class="schip">LangSmith tracing</span>
+          </div>
+        </div>
+      </div>
+      <p class="cs-stack-note">Model names and tool counts are the constants pinned in the repo, not approximations.</p>
+    </div>
+
+    <!-- ============ 11 ROADMAP ============ -->
+    <div class="cs-sec" id="roadmap">
+      <h3><span class="sec-num">11</span>Where it is, where it's going</h3>
+      <p>Productsense runs end to end on Cloud Run today, single-tenant. The current work is testing: I hand it to students and builders in my community, watch them plan and build real projects with it, and fix what their sessions surface. Several of the battle scars above came straight from those runs.</p>
+      <p>The roadmap points one direction: Slack and workspace integrations, team support, everything in one hub, until this is a <b>product management suite for coding agents</b>. Maya owns what to build and why. The coding agents own how. Productsense stays the handshake between them.</p>
+    </div>
+
+    <!-- ============ 12 LEARNED ============ -->
+    <div class="cs-sec" id="learned">
+      <h3><span class="sec-num">12</span>What it taught me</h3>
+      <p><b>I skipped discovery while building a discovery tool, and paid for it in months.</b> The product I ended up shipping exists so the next builder doesn't do what I did. I can't think of a better proof of the problem than the way I built the solution.</p>
+      <p><b>Impressive architecture is a cost, not a feature.</b> The multi-agent group chat was the best demo I've ever built, and it was mostly agents performing work at each other. One good agent holding the tools beat eight agents talking, on quality and on cost. Deleting it was the single best product decision in the project.</p>
+      <p><b>The valuable part is the seam.</b> Anyone can generate a PRD. The thing that didn't exist was the handshake: product judgment living in one place, build execution in another, connected by a protocol instead of a pasted file. That separation of context is what makes both sides better, and it's the part I'd defend in any interview.</p>
+    </div>
+
+  </div>
+
+  <div class="cs-next">
+    <div class="tag-pill">More side projects</div>
+    <div style="margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
+      <a class="btn btn-ink" href="project-debatly.html">Debatly <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="project-pantryhub.html">PantryChef <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="index.html#projects">All projects <span class="arr">→</span></a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <span>© <span id="yr"></span> <b>Ashwin Thomas Paul</b> · designed and prototyped by me.</span>
+</footer>
+
+<script src="js/grainient.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

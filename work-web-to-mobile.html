@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f2f1ec" />
+<style>html { background-color: #f2f1ec; }</style>
+<title>Web-to-Mobile, End to End · Case Study · Ashwin Thomas Paul</title>
+<meta name="description" content="Leading a cross-functional pod through the web-to-mobile transition, native iOS/Android apps with in-app checkout, payment flows, and push re-engagement; bookings per user up 45% among migrated users." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="filmgrain" aria-hidden="true"></div>
+<div class="page-grain" id="grain-page" aria-hidden="true"></div>
+
+<header class="site-head">
+  <a class="wordmark" href="index.html">Ashwin Thomas Paul</a>
+  <nav class="pill-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#story">Story</a>
+    <a href="index.html#work" class="active">Work</a>
+    <a href="filmmaking.html">Film</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="btn btn-ink head-cta" href="assets/resume.pdf" download>Résumé <span class="arr">↓</span></a>
+</header>
+
+<main>
+
+  <section class="cs-hero">
+    <div class="wrap" style="position:relative;z-index:1">
+      <div class="tag-pill rise d1">Product case study</div>
+      <h1 class="h-big rise d2" style="margin-top:26px">Web-to-Mobile,<br />End to End</h1>
+      <p class="cat rise d3">Platform Expansion · Cross-Functional Delivery · Re-Engagement</p>
+
+      <div class="cs-strip rise d5">
+        <span class="chip solid"><b>Product Manager · Booking Bash</b></span>
+        <span class="chip">Native iOS + Android delivery</span>
+        <span class="chip"><b>+45% bookings per user</b></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="cs-body">
+
+    <p class="lede">A booking platform that only lives in a browser tab is one swipe from being forgotten. The mobile apps had to carry everything the web product did, and give high-frequency users a reason to book more, not just somewhere new to book.</p>
+
+    <div class="cs-tags">
+      <span class="cs-tag">Roadmap ownership</span>
+      <span class="cs-tag">Cross-functional pod</span>
+      <span class="cs-tag">In-app checkout & payment flows</span>
+      <span class="cs-tag">Push re-engagement</span>
+      <span class="cs-tag">Migration cohort measurement</span>
+    </div>
+
+    <nav class="toc-bar" aria-label="On this page">
+      <a href="#context"><span class="n">01</span> The context</a>
+      <a href="#owned"><span class="n">02</span> What I owned</a>
+      <a href="#measurement"><span class="n">03</span> An honest cohort</a>
+      <a href="#results"><span class="n">04</span> Results</a>
+      <a href="#learned"><span class="n">05</span> What it taught me</a>
+    </nav>
+
+    <div class="cs-sec" id="context">
+      <h3><span class="sec-num">01</span>The context</h3>
+      <p>Booking Bash grew up web-first. By the time the mobile bet was made, the ceiling was obvious: travel discovery and booking behavior had moved into apps, and the platform's highest-frequency users, the BBPro members and power bookers, had no home on the surface where they actually lived. The mandate wasn't "have an app." It was to move a working marketplace of <b>500+ venue listings</b> onto two new platforms without breaking a booking flow that was earning revenue every day.</p>
+      <p>That last constraint set the tone for the whole project. A redesign can afford a rough first week; a checkout that processes real money cannot. So before a single screen was designed, I inventoried what the web product actually did, not what its documentation said it did. Years of client work had taught me that the gap between those two is where migrations die, and this one had years of accumulated behavior to account for.</p>
+    </div>
+
+    <div class="cs-sec" id="owned">
+      <h3><span class="sec-num">02</span>What I owned</h3>
+      <p><b>The roadmap and the sequencing.</b> Discovery mapped every booking-flow edge case the web product had accumulated over years, cancellation-policy tiers, multi-currency display, open-dated tickets, and re-specced them for mobile constraints: offline states, push-driven confirmations, and an <b>in-app checkout and payment flow</b> that had to feel faster than the web it replaced.</p>
+      <p><b>The pod.</b> I ran a cross-functional engineering-design pod through agile delivery: sprint planning, spec reviews, and platform-parity triage. Date pickers, payment sheets, and deep links all behave differently across iOS and Android, and every difference is a support ticket waiting to happen. My rule for the pod was that parity bugs outranked new features until launch, which is an easy thing to say and a genuinely unpopular thing to enforce in sprint planning. We shipped parity first and earned the right to app-only features afterward.</p>
+      <p><b>The re-engagement loop.</b> The app's real advantage over web wasn't the interface, it was permission to speak. Push re-engagement targeted high-frequency users with booking-relevant moments rather than noise. I treated notification design as offer design: a push had to carry something the user would thank us for, an off-peak member deal, a booking reminder, a confirmation, or it didn't ship. Burning notification permission on announcements is how apps get muted, and a muted app is a web tab with extra steps.</p>
+      <div class="shot"><img src="Compressed/works/web-to-mobile.jpg" alt="Native mobile app experience" loading="lazy" /></div>
+      <p class="shot-cap">The native app experience we launched, with in-app checkout and push re-engagement that the mobile web could never do.</p>
+    </div>
+
+    <div class="cs-sec" id="measurement">
+      <h3><span class="sec-num">03</span>An honest cohort</h3>
+      <p>The success metric was scoped deliberately: <b>bookings per user among migrated web users</b>, people who had a web baseline to compare against. That cut avoids the classic mobile-launch trap of celebrating app-store installs while measuring nothing about behavior change. Against their own web baseline, migrated users booked <b>45% more</b>.</p>
+      <p>What the cut deliberately excludes matters as much as what it includes. Brand-new users who arrived through the app stores have no baseline, so counting them would have inflated the number with people we couldn't attribute. And a per-user frequency metric can't be juiced by a marketing spike the way raw booking totals can. When I present 45%, I can explain exactly who is in the denominator, which is the whole point of choosing it.</p>
+    </div>
+
+    <div class="cs-sec" id="results">
+      <h3><span class="sec-num">04</span>Results</h3>
+      <div class="cs-results">
+        <div class="r"><div class="num">+45%</div><div class="lbl">bookings per user among migrated web users</div></div>
+        <div class="r"><div class="num">iOS + Android</div><div class="lbl">native apps shipped with full booking-flow parity</div></div>
+        <div class="r"><div class="num">500+</div><div class="lbl">venue listings carried onto the new platforms</div></div>
+      </div>
+    </div>
+
+    <div class="cs-sec" id="learned">
+      <h3><span class="sec-num">05</span>What it taught me</h3>
+      <p>Platform migrations succeed on the boring edge cases nobody puts in the pitch deck. The 45% didn't come from a feature, it came from removing every reason a booking would fail to complete on the new surface, then using push to show up at the right moment instead of the loudest one.</p>
+    </div>
+
+  </div>
+
+  <div class="cs-next">
+    <div class="tag-pill">More case studies</div>
+    <div style="margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
+      <a class="btn btn-ink" href="work-supply-side.html">Running the Supply Side <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="work-visa-samsung.html">The Visa × Samsung Partnership <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="index.html#work">All work <span class="arr">→</span></a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <span>© <span id="yr"></span> <b>Ashwin Thomas Paul</b> · designed and prototyped by me.</span>
+</footer>
+
+<script src="js/grainient.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

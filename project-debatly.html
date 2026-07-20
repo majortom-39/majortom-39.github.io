@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f2f1ec" />
+<style>html { background-color: #f2f1ec; }</style>
+<title>Debatly · AI Build · Ashwin Thomas Paul</title>
+<meta name="description" content="A live debate fact-checker built end to end: the creator problem, the speaker-attribution challenge, a two-stage Firecrawl-first fact checker, a deterministic scoring engine, and the honest limits." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="filmgrain" aria-hidden="true"></div>
+<div class="page-grain" id="grain-page" aria-hidden="true"></div>
+
+<header class="site-head">
+  <a class="wordmark" href="index.html">Ashwin Thomas Paul</a>
+  <nav class="pill-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="index.html#projects" class="active">Projects</a>
+    <a href="index.html#story">Story</a>
+    <a href="index.html#work">Work</a>
+    <a href="filmmaking.html">Film</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="btn btn-ink head-cta" href="assets/resume.pdf" download>Résumé <span class="arr">↓</span></a>
+</header>
+
+<main>
+
+  <section class="cs-hero">
+    <div class="wrap" style="position:relative;z-index:1">
+      <div class="tag-pill rise d1">Side project · live product </div>
+      <h1 class="rise d2" style="margin-top:22px"><img class="cs-hero-logo" src="Compressed/Debatly/debatly-logo-light.png" alt="Debatly" /></h1>
+      <p class="cat rise d3">Watch any debate. See who's actually telling the truth.</p>
+      <div class="cs-hero-img rise d4">
+        <div class="ph-real contain" style="aspect-ratio:16/9;background:#0c0a09"><img src="Compressed/Debatly/thumbnail.jpg" alt="The Debatly desk: a live debate with per-side scores, claims, and fact-check breakdown" /></div>
+      </div>
+
+      <div class="cs-strip rise d5">
+        <span class="chip solid"><b>Solo build</b> · PM, design, code</span>
+        <a class="chip" href="https://debatly.online" target="_blank" rel="noopener"><b>Live at debatly.online</b> ↗</a>
+        <a class="chip" href="https://github.com/majortom-39/debatly" target="_blank" rel="noopener"><b>View code on GitHub</b> ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cs-body">
+
+    <p class="lede">In a live debate, sounding confident and being right look exactly the same. Debatly tells them apart while the debate is still happening: who said it, whether it checks out, and whether they contradicted themselves an hour ago.</p>
+
+    <div class="award-row">
+      <div class="award-img"><img src="Compressed/Debatly/debate-stage.jpg" alt="Ashwin Thomas Paul competing in a debate on stage" loading="lazy" /></div>
+      <div>
+        <h4>Why this one is personal</h4>
+        <p>I have always been intrigued by debate. All through school and college I signed up for debate competitions: on stage, on the clock, trying to track who said what and whether it actually held up under the next question. Debatly grew straight out of that. It is the tool I wished I had back then, something that can follow a live argument, catch the claims as they land, and tell the difference between sounding confident and being right.</p>
+      </div>
+    </div>
+
+    <nav class="toc-bar" aria-label="On this page">
+      <a href="#problem"><span class="n">01</span> The problem</a>
+      <a href="#icp"><span class="n">02</span> Who it's for</a>
+      <a href="#demo"><span class="n">03</span> See it work</a>
+      <a href="#attribution"><span class="n">04</span> Who said it</a>
+      <a href="#gate"><span class="n">05</span> The gate</a>
+      <a href="#pipeline"><span class="n">06</span> The pipeline</a>
+      <a href="#factcheck"><span class="n">07</span> Fact checking</a>
+      <a href="#scoring"><span class="n">08</span> The score</a>
+      <a href="#report"><span class="n">09</span> The report</a>
+      <a href="#evals"><span class="n">10</span> Evaluation</a>
+    </nav>
+
+    <!-- ============ 01 PROBLEM ============ -->
+    <div class="cs-sec" id="problem">
+      <h3><span class="sec-num">01</span>The problem</h3>
+      <p>Watch anyone react to a debate live. Someone makes a confident factual claim, and the host has about three seconds to decide: let it go, or stop everything and search for it. Letting it go means amplifying something that might be false. Stopping kills the pace, which is the whole product for a live show.</p>
+      <p>The tools that exist pick one half of the problem. Transcription stops at <b>what was said</b>. Written fact-checks arrive the next day, long after the audience has gone. Nobody had put attribution, verification, and a running judgment in the same place, live.</p>
+      <p>And there's a harder problem underneath. In a real debate people interrupt and talk over each other. A perfect transcript still can't tell you <b>who</b> made the claim, and a fact-check attached to the wrong person is worse than no fact-check at all. Every feature in this product inherits that one accuracy number.</p>
+    </div>
+
+    <!-- ============ 02 ICP ============ -->
+    <div class="cs-sec" id="icp">
+      <h3><span class="sec-num">02</span>Who it's for</h3>
+      <p>I built this for <b>debate reactors: the YouTubers, streamers, and clip channels</b> whose job is watching people argue. Panel shows, political debates, podcast clashes. They're the people who feel this pain professionally, several hours a week.</p>
+      <div class="icp-hero balanced">
+        <div class="icp-art">
+          <img src="Compressed/Debatly/icp-streamer.png" alt="Illustration of a streamer at a desk with a mic, ring light, and webcam" />
+        </div>
+        <div class="icp-rows">
+          <div class="irow"><b>Who they are</b><p>Creators who react to or clip debate content. They already have the mic, the second screen, and an audience that shows up for their take.</p></div>
+          <div class="irow"><b>The pain</b><p>"Someone just said something that sounds wrong, I'm live, and I have three seconds to decide whether to challenge it."</p></div>
+          <div class="irow"><b>Why them</b><p>Being right is their brand. Amplifying a false claim costs them real credibility, so accuracy is a business input, not a nice-to-have.</p></div>
+        </div>
+      </div>
+      <p class="epic" style="background:rgba(255,255,255,.45)"><b>Who it's not for:</b> academic debate judges, who score argument quality and rhetoric rather than factual truth, so the whole scoring model is wrong for them. Newsrooms, who need editorial sign-off and legal review and cannot publish a machine's verdict. And casual viewers, who feel this once a month and will never pay for it. Saying no to all three is what let the product commit to a truth score instead of trying to also be a debate-judging rubric.</p>
+    </div>
+
+    <!-- ============ 03 DEMO ============ -->
+    <div class="cs-sec" id="demo">
+      <h3><span class="sec-num">03</span>See it work</h3>
+      <p>Ninety seconds, with sound on.</p>
+      <div class="videoclean" style="margin:26px 0">
+        <video controls preload="none" poster="Compressed/Debatly/thumbnail.jpg">
+          <source src="assets/video/debatly-promo.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p>The screenshot at the top is a real session: a <b>1 hour 40 minute panel debate with 25 speakers</b>, the kind of multi-person format that breaks most speaker-detection systems. From 1,010 transcribed turns it produced <b>157 debate points, 105 fact-checked claims, and 16 inconsistencies</b>, with both sides scored live and a full report at the end. Every recording you'll see below is that same debate, captured from the live app.</p>
+      <p>You can also just open it. Any debate becomes a share link that loads the whole analysis for anyone, <b>no signup</b>:</p>
+      <p style="margin-top:14px"><a class="btn btn-ink" href="https://debatly.online/?share=5eb6d7d73fa04d69923909" target="_blank" rel="noopener">Open the shared debate <span class="arr">→</span></a></p>
+    </div>
+
+    <!-- ============ 04 ATTRIBUTION ============ -->
+    <div class="cs-sec" id="attribution">
+      <h3><span class="sec-num">04</span>The hard part: who said it</h3>
+      <p>Getting the words is a solved problem you can buy. Getting <b>who said them</b>, live, through crosstalk, is not. So that layer got the investment, even though it's the one users never see.</p>
+      <p>There are two ways in, and they use different tools on purpose:</p>
+      <div class="shot"><img src="Compressed/Debatly/ways-capture.gif" alt="All the capture doors: live mic, a browser tab's audio, an uploaded recording, or a pasted video link" loading="lazy" /></div>
+      <p class="shot-cap"><b>Every door in, in one take.</b> Live mic, a browser tab's audio, an uploaded file, or a pasted video link. All four end up in the same pipeline.</p>
+
+      <span class="d-label">Path 1 · Live</span>
+      <div class="flowd f-live">
+        <div class="fnode fa-app">
+          <h5>Browser</h5>
+          <div class="fid">mic · or a browser tab's audio</div>
+          <p>Streams audio to the server over a WebSocket.</p>
+        </div>
+        <span class="farr fa-a1" aria-hidden="true"></span>
+        <div class="fnode fa-text">
+          <h5>The words</h5>
+          <div class="fid">Speechmatics · realtime</div>
+          <p>Transcribes speech to text as it happens.</p>
+        </div>
+        <div class="fnode fa-voice">
+          <h5>The voices</h5>
+          <div class="fid">local Python worker · CPU</div>
+          <p>Silero VAD plus pyannote/wespeaker voice fingerprints, clustered online with a profile per speaker.</p>
+        </div>
+        <span class="farr fa-a2" aria-hidden="true"></span>
+        <div class="fnode hot fa-led">
+          <h5>Word to speaker merge</h5>
+          <div class="fid">persistent labels</div>
+          <p>Each word gets matched to a voice fingerprint, so a speaker keeps the same label for the whole debate.</p>
+        </div>
+      </div>
+
+      <span class="d-label">Path 2 · Upload or paste a link</span>
+      <div class="pipe" style="margin-top:18px">
+        <div class="pstep">
+          <div class="prail"><span class="pdot">1</span><span class="pline"></span></div>
+          <div class="pbody"><h5>Audio, video, or a video URL</h5><p>The server pulls the audio out with ffmpeg.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="prail"><span class="pdot">2</span></div>
+          <div class="pbody"><h5>pyannote.ai <code>precision-2</code> + <code>faster-whisper-large-v3-turbo</code></h5><p>Batch mode gets the whole recording at once instead of guessing from a rolling window, which is why uploads give the cleanest speaker labels the product can produce.</p></div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px"><b>The honest version of this story.</b> I didn't build the speech models. Speechmatics does the words, and the speaker fingerprinting uses open pyannote and wespeaker models. What I built is the <b>merge</b>, and the decision to split the job in two: let one system be excellent at words, let another be excellent at voices, and stitch them together rather than accepting one vendor's mediocre version of both.</p>
+      <p><b>What that swap actually bought.</b> The first version used per-window speaker detection, and labels drifted: the same person could become a new speaker later in the debate. I replaced it with a stateful engine that keeps a persistent voice profile per speaker, so labels stay stable across a whole session. Validated locally, it held a consistent 6-speaker set and ran at about <b>0.6 seconds of compute per 4 seconds of audio on CPU, roughly 6.7× faster than real time</b>, which is what makes live viable without a GPU.</p>
+      <p><b>The safety valve.</b> When the fingerprinting can't confidently place a word, it falls back to the transcription service's own speaker label rather than dropping the word. A slightly wrong label is recoverable. A missing sentence is not.</p>
+    </div>
+
+    <!-- ============ 05 THE GATE ============ -->
+    <div class="cs-sec" id="gate">
+      <h3><span class="sec-num">05</span>The gate: teaching software to know a debate started</h3>
+      <p>This is the part I'm proudest of, and it started with a question that has nothing to do with code: <b>if you could only hear a debate, with no picture, how would you know it had begun?</b></p>
+      <p>You wouldn't start a timer. You'd wait until someone stopped introducing things and started <i>taking a position</i>, and held it long enough that you believed they were a participant rather than a host. That's the whole idea behind the Stabilizer Gate, and I built every node in the pipeline on the same principle: work out how a person does it by ear, then encode that.</p>
+      <p><b>Why not just skip the first two minutes?</b> Because across the five debates I tested, the real start landed at <b>0:45, 1:30, 2:00, 4:30 and 5:15</b>. Any fixed rule fails four out of five. The gate doesn't guess the time; it watches for a speaker who has sustained stance-bearing speech, weighs host signals against argument signals, and only then opens.</p>
+      <div class="cs-matrix">
+        <div class="row head"><span>Test debate</span><span>Where it came from</span><span>Gate opened</span><span>Backfilled from</span></div>
+        <div class="row"><span class="feat">One vs many, on Israel</span><span>YouTube panel, Jubilee-style one-vs-many</span><span>1:30</span><span>1:12</span></div>
+        <div class="row"><span class="feat">Gaza compared to Ukraine</span><span>Host-led interview show</span><span>2:00</span><span>1:47</span></div>
+        <div class="row"><span class="feat">Is the Gaza war justified</span><span>Formal two-person debate</span><span>4:30</span><span>3:57</span></div>
+        <div class="row"><span class="feat">Personal choice vs circumstance</span><span>Podcast, with a mid-roll sponsor read</span><span>0:45</span><span>0:41</span></div>
+        <div class="row"><span class="feat">Harris vs Trump</span><span>ABC News presidential debate</span><span>5:15</span><span>5:01</span></div>
+      </div>
+      <p><b>Opening late without losing anything.</b> Look at the two right columns. The gate opens at 1:30 but the transcript it hands downstream starts at 1:12. When a speaker is finally judged durable, the gate <b>backfills their words from their first observed turn</b>, so being careful about when to open costs nothing. That was the design problem: a gate that opens early is noisy, a gate that opens late loses the opening argument. Backfill means it can afford to be patient.</p>
+      <p><b>It reserves rather than rejects.</b> When continuity breaks mid-debate, the segment isn't thrown away, it's held. If it reconnects to the debate it's released; only when the intent is clearly an ad does it get rejected. In the fourth test the gate caught a sponsor read at <b>5:58 to 6:56</b> and dropped exactly that, then carried on. It also never closes once open, so a commercial break can't end the show.</p>
+      <p><b>What it decides, in its own words.</b> The gate classifies the opening into types like <code>cold_open_or_montage_followed_by_host_intro</code> and <code>possible_two_speaker_live_exchange</code>, then scores each speaker on evidence: words spoken, turn count, host-signal hits versus argument-signal hits. Speaker 1 in the first test cleared at <b>0.72 confidence</b> on 1,742 words across 112 turns, with 21 argument signals against 1 host signal. And it deliberately does <i>not</i> assign sides. That's the next node's job. Each node gets one decision.</p>
+      <p class="cs-stack-note">Gate open times, backfill points, opening types, and per-speaker evidence are read from the five-scenario benchmark run in <code>.benchmarks/speechmatics-stabilizer-gate-test3-20min-final/</code>.</p>
+    </div>
+
+    <!-- ============ 06 PIPELINE ============ -->
+    <div class="cs-sec" id="pipeline">
+      <h3><span class="sec-num">06</span>The pipeline</h3>
+      <p>Once the words have owners, the transcript is cut into <b>60-second packets</b> and every packet walks the same graph. It isn't one long chain. The head is linear because those steps genuinely depend on each other, then it <b>fans out into three independent branches</b> and fans back in.</p>
+
+      <div class="dag">
+        <div class="dag-col">
+          <div class="dnode head">
+            <h5>Stabilizer Gate</h5>
+            <div class="dmeta">every packet · linear</div>
+            <p>Nothing moves until the gate opens. After that it stays open and tags ads, intros, moderator chatter, and off-topic drift so later nodes skip them.</p>
+          </div>
+          <div class="dag-down">↓</div>
+          <div class="dnode head">
+            <h5>Side Builder</h5>
+            <div class="dmeta">every open packet · owns the dialogue ledger</div>
+            <p>Sorts speakers into Blue and Red and writes each side's thesis from what they actually argue. Its ledger, plus the packet, is what feeds everything below.</p>
+          </div>
+        </div>
+
+        <div class="dag-split">fans out · three branches · three ledgers</div>
+
+        <div class="dag-tier3">
+          <div class="dag-branch">
+            <div class="dnode">
+              <h5>Debate Point Builder</h5>
+              <div class="dmeta">every packet · ~1 min</div>
+              <p>Pulls out the genuinely good arguments and tags each as a principle, a foundation, evidence, or a rebuttal.</p>
+            </div>
+            <div class="dag-down short">↓</div>
+            <div class="dnode child">
+              <h5>Family Merger</h5>
+              <div class="dmeta">every 2nd packet · ~2 min</div>
+              <p>Groups near-duplicates into themed families, so an argument made five times isn't five arguments.</p>
+            </div>
+            <div class="dag-spacer"></div>
+          </div>
+
+          <div class="dag-branch">
+            <div class="dnode">
+              <h5>Claim Builder</h5>
+              <div class="dmeta">every packet · ~1 min</div>
+              <p>Finds statements checkable against the outside world and frames a clean search query for each. Opinions are not claims.</p>
+            </div>
+            <div class="dag-down short">↓</div>
+            <div class="dnode child">
+              <h5>Fact Queue</h5>
+              <div class="dmeta">3 claims per packet</div>
+              <p>Lines the claims up so a fast exchange never floods the search API.</p>
+            </div>
+            <div class="dag-down short">↓</div>
+            <div class="dnode child">
+              <h5>Fact Checker</h5>
+              <div class="dmeta">Firecrawl, then Gemini</div>
+              <p>Searches, reads the sources, and returns one verdict per claim.</p>
+            </div>
+          </div>
+
+          <div class="dag-branch">
+            <div class="dnode">
+              <h5>Inconsistency Builder</h5>
+              <div class="dmeta">every 2nd packet · ~2 min</div>
+              <p>Catches a speaker contradicting themselves, and catches two people on the same side holding incompatible positions.</p>
+            </div>
+            <div class="dag-spacer"></div>
+          </div>
+        </div>
+
+        <div class="dag-split">fans in · all three branches</div>
+
+        <div class="dnode sink">
+          <h5>Scoring Engine <span style="font-family:ui-monospace,Menlo,monospace;font-size:9.5px;font-weight:400;letter-spacing:.04em">not AI</span></h5>
+          <div class="dmeta">every packet · pure arithmetic</div>
+          <p>Tallies the tags the three branches produced. Recomputed on every packet, so the scoreboard moves live.</p>
+        </div>
+      </div>
+
+      <p><b>Why branches instead of a chain.</b> Arguments, checkable claims, and contradictions are three different readings of the same minute of speech. None of them needs the others' output. Wiring them in a line would mean each one waits on work it doesn't use, and a failure in one would take down the other two. As independent branches, each keeps its <b>own ledger</b> so it never re-processes what it has already seen, and the whole graph degrades gracefully: if the fact-checker has a bad minute, arguments and contradictions still land on the board.</p>
+      <p><b>Different jobs, different clocks.</b> Debate points and claims run every packet. Family merging and contradiction-hunting run every second packet, because both need accumulated history to be worth anything, and running them every minute would burn tokens to re-decide the same thing. The fact-checker takes three claims a packet regardless of how fast people talk.</p>
+      <p><b>One brain, every job.</b> Every thinking node runs the same model at the same setting: <code>gemini-3.1-flash-lite</code> at thinking level <code>medium</code>, defined once in one shared file. No node re-implements how to call a model, and swapping the model is a one-line change in one place. Reaching for a bigger model per node is tempting; keeping it uniform is what made the pipeline cheap and easy to reason about.</p>
+    </div>
+
+    <!-- ============ 06 FACT CHECK ============ -->
+    <div class="cs-sec" id="factcheck">
+      <h3><span class="sec-num">07</span>Fact checking: search first, model second</h3>
+      <p>The obvious way to fact-check with Gemini is to hand it the claim and turn on Google Search grounding. I built that first. Then I tried splitting the job in two, and the split won on both speed and source quality, so it became the main path.</p>
+      <div class="flowd f-fc">
+        <div class="fnode fa-app">
+          <h5>1 · Search</h5>
+          <div class="fid">Firecrawl</div>
+          <p>Runs the claim's framed query and returns real sources: title, URL, snippet.</p>
+        </div>
+        <span class="farr fa-a1" aria-hidden="true"></span>
+        <div class="fnode fa-text">
+          <h5>2 · Judge</h5>
+          <div class="fid">gemini-3.1-flash-lite</div>
+          <p>Reads only those snippets and writes the verdict, the tag, and a one-line reason. It is not allowed to go searching again.</p>
+        </div>
+        <span class="farr fa-a2" aria-hidden="true"></span>
+        <div class="fnode fa-led">
+          <h5>Fallback</h5>
+          <div class="fid">gemini-2.5-flash · googleSearch</div>
+          <p>Only if Firecrawl finds nothing usable, that single claim escalates to Gemini grounding.</p>
+        </div>
+      </div>
+      <p><b>Why this order.</b> Letting the model search and judge in one call makes it hard to know which half failed. Splitting them means the search returns citable sources the user can click, and the model does the one thing it's good at: reading and deciding. It also turned out to be faster and to produce cleaner sources than grounding, which is why grounding got demoted to the backup path rather than deleted.</p>
+      <p><b>Four verdicts, no hedging.</b> Every checked claim lands on exactly one: <b>verified</b> (sources confirm it as stated), <b>contradicted</b> (sources refute it), <b>misleading</b> (the core fact is real but mis-attributed, exaggerated, or missing key context), or <b>no clear source</b> (nothing authoritative either way). That last one matters: "we couldn't find out" is an honest answer, and it scores zero rather than being quietly counted against anyone.</p>
+      <p><b>Throttling is a product decision.</b> Claims go through a queue three at a time rather than all at once. A heated exchange can produce claims faster than any search API wants to serve them, and a fact-checker that falls over during the best part of the debate is useless.</p>
+      <div class="shot"><img src="Compressed/Debatly/desk-claims.gif" alt="The Claims tab: verified, misleading, contradicted, and no-clear-source cards with quotes and sources" loading="lazy" /></div>
+      <p class="shot-cap"><b>Claims, live.</b> 105 in this debate, split 53 Blue and 52 Red. Every card carries the verdict, the exact quote it came from, and for anything not verified, the reason plus real clickable sources. The contradicted one here is a good example of why the reason matters: a speaker said Asian Americans received reparations after the Chinese Exclusion Act, and the sources show the 1988 Civil Liberties Act paid reparations to Japanese Americans for WWII incarceration instead. Close enough to sound right, wrong enough to matter.</p>
+    </div>
+
+    <!-- ============ 07 SCORING ============ -->
+    <div class="cs-sec" id="scoring">
+      <h3><span class="sec-num">08</span>The score is arithmetic, not an opinion</h3>
+      <p>This was the most important call on the product. The moment an AI declares who won a political debate, it's a bias story, and nobody trusts anything else on the screen. So <b>the scoring engine contains no AI at all.</b></p>
+      <p>The thinking steps already made every judgment: this claim is verified, that one is contradicted, that's a double standard. The scoring engine just tallies those decisions at fixed values. Same debate in, same score out, every single time.</p>
+      <div class="cs-matrix">
+        <div class="row head"><span>Event</span><span>Points</span><span>Why that number</span><span>Weight</span></div>
+        <div class="row"><span class="feat">Verified claim</span><span>+3</span><span>Being right should pay, but not enormously</span><span class="flag green">Reward</span></div>
+        <div class="row"><span class="feat">Contradicted claim</span><span>−5</span><span>Being caught saying something false hurts more than being right helps</span><span class="flag red">Heaviest</span></div>
+        <div class="row"><span class="feat">Misleading claim</span><span>−2</span><span>Real fact, wrong framing. Bad, but not the same as false</span><span class="flag yellow">Penalty</span></div>
+        <div class="row"><span class="feat">No clear source</span><span>0</span><span>Unproven is not the same as wrong. Neither rewarded nor punished</span><span class="flag yellow">Neutral</span></div>
+        <div class="row"><span class="feat">Self-contradiction or double standard</span><span>−4</span><span>Undercutting your own record is nearly as damaging as being false</span><span class="flag red">Heavy</span></div>
+      </div>
+      <p>Both sides start at zero, and <b>a side can go negative</b>, which happens when someone gets caught out more than they get proven right. Volume never wins: talking more just gives you more chances to be checked.</p>
+
+      <p style="margin-top:26px"><b>The receipt.</b> Here's the real scoreboard from a 1:40 debate, straight out of the app. Every number traces to cards the user can open, and the totals are just addition:</p>
+      <div class="shot"><img src="Compressed/Debatly/report-scoreboard.gif" alt="The live scoreboard: Blue side at minus 17, Red side at 62, each with a breakdown of verified, contradicted, misleading, inconsistency, and debate points" loading="lazy" /></div>
+      <p class="shot-cap">One speaker on Blue, eighteen on Red. The chips under each side are the whole scoring model, made visible. Blue: <b>90 − 45 − 24 − 44 + 6 = −17</b>. Red: <b>117 − 35 − 6 − 20 + 6 = 62</b>. Do the addition yourself, it comes out the same.</p>
+      <p>That's the point of the design. Anyone who dislikes the result can open every card, check every source, and redo the arithmetic. <b>And the report never declares a winner.</b> It shows the facts, the score, and its own method, then leaves the judgment to the person watching. A tool that tells people who won gets argued with. A tool that shows its work gets used.</p>
+    </div>
+
+    <!-- ============ 09 THE BOARD & THE REPORT ============ -->
+    <div class="cs-sec" id="report">
+      <h3><span class="sec-num">09</span>The board, the report, and getting it out</h3>
+      <p>Everything the pipeline produces lands on one board while the debate runs, split into three tabs. Then you hit stop, and the report runs a second pass over the whole session.</p>
+
+      <div class="shot"><img src="Compressed/Debatly/desk-points.gif" alt="The Debate Points tab: arguments grouped into themed families, each tagged principle, foundation, evidence, or rebuttal" loading="lazy" /></div>
+      <p class="shot-cap"><b>Debate points.</b> Not a list, a structure. Arguments are grouped into themed <b>families</b> ("Critique of DEI Principles and Foundations", 10 points; "Addressing Historical and Systemic Inequality", 5) so an argument made repeatedly reads as one thread. Each point is tagged by what it's <i>doing</i>: <code>principle</code>, <code>foundation</code>, <code>evidence</code>, or <code>rebuttal</code>. Every one keeps the verbatim quote it came from.</p>
+
+      <div class="shot"><img src="Compressed/Debatly/desk-inconsistencies.gif" alt="The Inconsistencies tab: self-contradiction cards scoped to a speaker and double-standard cards scoped to a side" loading="lazy" /></div>
+      <p class="shot-cap"><b>Inconsistencies, at two scopes.</b> This is the part people don't expect. <code>self-contradiction</code> is scoped to a <b>speaker</b>: one person's own two quotes placed side by side. <code>double-standard</code> is scoped to a <b>side</b>, catching two <i>different</i> people on the same team holding incompatible positions, like one speaker defining moral status at legal personhood while their teammate argues the opposite standard. A team can be incoherent without any individual flip-flopping, and nothing else on the board would catch that.</p>
+
+      <div class="shot"><img src="Compressed/Debatly/desk-transcript.gif" alt="The transcript window: 1010 speaker-labeled turns, color-coded by side" loading="lazy" /></div>
+      <p class="shot-cap"><b>The transcript underneath it all.</b> 1,010 speaker-labeled turns from this one debate, color-coded by side. Everything above is derived from this, so it stays one click away and downloadable as a plain text file with labels and timestamps intact. If you don't trust a verdict, you can read the source.</p>
+
+      <h4 style="font-family:var(--display);font-size:19px;letter-spacing:-.02em;margin:36px 0 12px">Hit stop, get a report</h4>
+      <p>Ending the debate triggers a second analysis pass over the whole session, not just a summary of the board.</p>
+
+      <div class="shot"><img src="Compressed/Debatly/report-timeline.gif" alt="The report's score-over-time chart with markers showing when each speaker entered the debate" loading="lazy" /></div>
+      <p class="shot-cap"><b>How the score moved.</b> Credibility plotted across all 101 minutes for both sides, with a marker every time a new speaker enters. My own description of it is the best one: it's the fall-of-wickets chart from cricket. You can see the exact stretch where Red pulled away, and which speaker walked in right before it. Note the annotation at the left: <b>"debate starts at 2:00"</b>. That's the gate's decision, printed on the chart.</p>
+
+      <div class="shot"><img src="Compressed/Debatly/report-speakers.gif" alt="Per-speaker score contributions as a bar chart, plus per-speaker cards with stats, a judging note, and a standout quote" loading="lazy" /></div>
+      <p class="shot-cap"><b>Who held up, and who got caught out.</b> Every speaker's net contribution as a bar, then a card each. Speaker 1 finished at <b>−17</b> on 30 verified, 9 false, 12 misleading, and 11 self-contradictions. Speaker 22 finished at <b>+21</b> on 8 verified and 2 misleading. Each card gets a one-line judging note and the speaker's standout quote, so the number always arrives with the sentence that earned it.</p>
+
+      <p>The written verdict is deliberately plain, and deliberately not a winner: <i>"Red side ended ahead on credibility"</i>, followed by <i>why</i>, in prose, naming what actually went wrong instead of hinting at it. Here that was factual accuracy on administrative history, legislative records, and demographic statistics, plus repeated internal inconsistencies. The report also ships per-side summaries, turning points with gained and lost ground, and its own scoring methodology, so the method is auditable inside the artifact itself.</p>
+
+      <div class="shot fit"><img src="Compressed/Debatly/ways-share.gif" alt="The share menu: copy a share link, export the report as a PDF, or download the transcript" loading="lazy" /></div>
+      <p class="shot-cap"><b>Three ways out of the app.</b> A share link, a PDF, or the raw transcript.</p>
+      <div class="cs-arch">
+        <div class="step"><h4>Share a link, no signup</h4><p>Any debate becomes a URL that loads the entire board and report for anyone who opens it. No account, no paywall, no request-access screen. The whole thing is just there.</p></div>
+        <div class="step"><h4>PDF export</h4><p>The full report as a real text-based PDF with vector charts, not screenshots. It stays searchable and selectable, because a fact-check you can't quote isn't much of a fact-check.</p></div>
+        <div class="step"><h4>Transcript download</h4><p>The complete diarized transcript as plain text with speaker labels and timestamps. The raw material, free, so anyone can check the work.</p></div>
+      </div>
+      <p><b>Why sharing had to be frictionless.</b> The user is a creator. Their entire job is showing something to an audience, so a fact-check trapped behind a login is worthless to them. The share link is the growth loop and the credibility mechanism in one: a streamer drops it in chat, thousands of people open a working analysis with every source clickable. Gating that would have been the easiest possible way to kill it.</p>
+      <p style="margin-top:18px"><a class="btn btn-ink" href="https://debatly.online/?share=5eb6d7d73fa04d69923909" target="_blank" rel="noopener">Open a real shared debate <span class="arr">→</span></a></p>
+      <p class="cs-stack-note">That link opens a full analysis in the live app with no account. That is the point.</p>
+    </div>
+
+    <!-- ============ 10 EVALUATION ============ -->
+    <div class="cs-sec" id="evals">
+      <h3><span class="sec-num">10</span>How I knew any of it worked</h3>
+      <p>Everything on this page is a claim about quality, so it needed evidence. I built a benchmark harness with <b>five real debates</b> as fixed scenarios and hand-checked transcripts as ground truth, then ran <b>199 benchmark runs</b> against them while building. Two of those runs changed the architecture.</p>
+
+      <h4 style="font-family:var(--display);font-size:19px;letter-spacing:-.02em;margin:32px 0 12px">Round one: picking a transcription vendor</h4>
+      <p>First question: who does the words? I took a clip, transcribed it by hand as ground truth, and ran both contenders against it. AssemblyAI got tuned twice on its silence thresholds to give it a fair shot.</p>
+      <div class="cs-matrix">
+        <div class="row head"><span>System</span><span>Word accuracy</span><span>Word error rate</span><span>Speaker accuracy</span></div>
+        <div class="row"><span class="feat">Speechmatics</span><span class="flag green">93.69%</span><span>6.31%</span><span class="flag green">97.93%</span></div>
+        <div class="row"><span class="feat">Speechmatics, realtime</span><span>92.96%</span><span>7.04%</span><span>98.70%</span></div>
+        <div class="row"><span class="feat">AssemblyAI <code>u3-rt-pro</code></span><span>87.86%</span><span>12.14%</span><span>95.07%</span></div>
+        <div class="row"><span class="feat">AssemblyAI, retuned silence</span><span>87.62%</span><span>12.38%</span><span>95.05%</span></div>
+      </div>
+      <p>Speechmatics won on both axes, by roughly 6 points on words. Tuning AssemblyAI's turn-silence settings moved it about a quarter of a point, which is its own answer: that gap wasn't a config problem. And going realtime only cost Speechmatics 0.7 points against its own batch mode, which is what made live viable at all. <b>Speechmatics got the job.</b></p>
+
+      <h4 style="font-family:var(--display);font-size:19px;letter-spacing:-.02em;margin:36px 0 12px">Round two: the hard clip breaks the winner</h4>
+      <p>Round one was two people talking politely. Real debates aren't that. So I re-ran it on Scenario 1: <b>20 minutes, 8 speakers, 4,426 hand-checked words</b>, people talking over each other. This time I added a dedicated diarization model to the comparison.</p>
+      <div class="cs-matrix">
+        <div class="row head"><span>System</span><span>Word accuracy</span><span>Diarization accuracy</span><span>Speakers found</span></div>
+        <div class="row"><span class="feat">Speechmatics realtime</span><span class="flag green">87.91%</span><span class="flag red">80.30%</span><span>6 of 8</span></div>
+        <div class="row"><span class="feat">Deepgram nova-3</span><span>83.87%</span><span class="flag green">91.75%</span><span>9 of 8 · oversplit</span></div>
+        <div class="row"><span class="feat">Pyannote Community-1, auto</span><span>87.91% <span style="color:var(--mute)">· on Speechmatics words</span></span><span class="flag green">88.80%</span><span>7 of 8</span></div>
+        <div class="row"><span class="feat">Pyannote, speaker count forced to 8</span><span>87.91%</span><span>89.05%</span><span class="flag red">right count, consistency fell to 69%</span></div>
+      </div>
+      <p><b>The winner of round one fell apart.</b> Speechmatics kept its words at 87.91%, but its speaker accuracy dropped from 97.93% on two people to <b>80.30% on eight</b>, and it only heard 6 of them. Speaker attribution doesn't degrade gently as a debate gets crowded, and you only find that out if you test on the hard thing. Round one would have shipped a system that broke on exactly the debates this product exists for.</p>
+      <p><b>Deepgram is the mirror image.</b> Better ears, worse words. <b>Neither vendor wins both, so the answer was to stop picking a vendor.</b> Keep Speechmatics' words, hand the voices to pyannote, and merge: 87.91% on words and 88.80% on speakers, best-in-table twice. The architecture in section 4 isn't a preference. It's what this table said.</p>
+      <p><b>The fourth row is the one I keep thinking about.</b> Telling pyannote there were exactly 8 speakers got the count right and made the result <i>worse</i>: consistency collapsed from 89% to 69%, because forcing the count makes it shuffle words around to hit the target. The honest system that guessed 7 beat the one handed the answer.</p>
+      <p><b>The oversplit problem, concretely.</b> Deepgram found 10 speakers where there were 8, and the error isn't spread evenly: one real person had their words scattered across seven different labels, keeping only 78.67% together. That's the failure that breaks a fact-check, because the claim gets pinned on someone who never said it.</p>
+
+      <h4 style="font-family:var(--display);font-size:19px;letter-spacing:-.02em;margin:36px 0 12px">Then every node, over and over</h4>
+      <p>Each node got the same treatment: run all five scenarios, read the output by hand, change one thing, run again. The benchmark folders are the record of it.</p>
+      <div class="cs-matrix">
+        <div class="row head"><span>Node</span><span>Runs</span><span>What kept changing</span><span>Landed on</span></div>
+        <div class="row"><span class="feat">Family Merger</span><span>38</span><span>When two arguments are the same argument</span><span class="flag green">Locked at v12</span></div>
+        <div class="row"><span class="feat">Stabilizer Gate</span><span>13</span><span>When a debate has actually started</span><span class="flag green">Right on all 5 formats</span></div>
+        <div class="row"><span class="feat">Fact Checker</span><span>11</span><span>Search source, query framing, calibration</span><span class="flag green">Firecrawl first, grounding second</span></div>
+        <div class="row"><span class="feat">Fact Queue</span><span>11</span><span>Batch size vs never throttling the API</span><span class="flag green">3 claims per packet</span></div>
+        <div class="row"><span class="feat">Debate Point Builder</span><span>11</span><span>What counts as a real argument</span><span class="flag green">Strict</span></div>
+        <div class="row"><span class="feat">Ledger and state</span><span>11</span><span>Stopping nodes re-reading old packets</span><span class="flag green">A ledger per node</span></div>
+        <div class="row"><span class="feat">Full pipeline, end to end</span><span>9</span><span>Everything at once, including the match bar</span><span class="flag green">75% threshold</span></div>
+      </div>
+      <p><b>Family merging got 38 runs, more than any other node</b>, and it's the least glamorous thing on the list. Deciding whether two arguments are actually the same argument turns out to be the hardest judgment in the product, and getting it wrong is loud: a board where the same point appears five times is unreadable. The gate took 13, including a moderator-specific fix after it kept mistaking hosts for debaters.</p>
+
+      <h4 style="font-family:var(--display);font-size:19px;letter-spacing:-.02em;margin:36px 0 12px">What made 199 runs possible</h4>
+      <p>None of that volume happens by hand. One run means five debates through a full pipeline with real API calls, and then <i>reading the output</i> to judge whether it actually got better, which is not something a green test tick can tell you.</p>
+      <p>I leaned on <b>Codex as a long-running coding agent</b> for exactly this: hand it the scenario harness and a target, let it run the sweep, change one variable, run again, and report what moved, for as long as it took. I stayed the judge. It ran the loop. That's the difference between testing three versions of the family merger and testing fifteen, and fifteen is where the good one was.</p>
+      <p class="cs-stack-note">Every number here comes from the JSON in <code>.benchmarks/</code>: the vendor table from the pyannote and Deepgram scenario-1 comparisons, the run counts from the benchmark directories, the thresholds and batch sizes from the shipped config.</p>
+    </div>
+
+    <!-- ============ 11 STACK ============ -->
+    <div class="cs-sec" id="stack">
+      <h3><span class="sec-num">11</span>Tech stack</h3>
+      <div class="stack-rows">
+        <div class="srow">
+          <b>Frontend</b>
+          <div class="schips">
+            <span class="schip">React + TypeScript</span>
+            <span class="schip">Vite</span>
+            <span class="schip">Recharts · score timeline</span>
+            <span class="schip">jsPDF · native PDF export</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Backend</b>
+          <div class="schips">
+            <span class="schip">Node + Express</span>
+            <span class="schip"><code>ws</code> WebSocket</span>
+            <span class="schip">Zod</span>
+            <span class="schip">Supabase · Postgres + auth</span>
+            <span class="schip">ffmpeg · youtube-dl-exec</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Speech</b>
+          <div class="schips">
+            <span class="schip">Speechmatics · live words</span>
+            <span class="schip">Silero VAD + pyannote/wespeaker · live voices</span>
+            <span class="schip">pyannote.ai <code>precision-2</code> · batch</span>
+            <span class="schip"><code>faster-whisper-large-v3-turbo</code> · batch</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Reasoning</b>
+          <div class="schips">
+            <span class="schip"><code>gemini-3.1-flash-lite</code> · every pipeline node, thinking medium</span>
+            <span class="schip">Firecrawl · search</span>
+            <span class="schip"><code>gemini-2.5-flash</code> · grounding fallback</span>
+          </div>
+        </div>
+        <div class="srow">
+          <b>Hosting</b>
+          <div class="schips">
+            <span class="schip">GCP Compute Engine VM</span>
+            <span class="schip">Caddy · automatic HTTPS</span>
+            <span class="schip">Vertex AI</span>
+          </div>
+        </div>
+      </div>
+      <p><b>Why a plain VM and not serverless.</b> This is the least fashionable decision in the project and the most necessary one. A single debate runs for hours on one connection, and serverless platforms cut long-lived connections. A VM also lets the server spawn the speaker-fingerprinting worker as a child process per live session, sized so it keeps up on CPU with no GPU. The boring choice was the only one that fit the actual job.</p>
+    </div>
+
+    <!-- ============ 09 LIMITS ============ -->
+    <div class="cs-sec" id="limits">
+      <h3><span class="sec-num">12</span>What it still gets wrong</h3>
+      <p>These are in the repo's README too. A tool whose whole pitch is honesty doesn't get to hide its own failure modes.</p>
+      <div class="cs-arch">
+        <div class="step"><h4>Overlapping speech</h4><p>When two people talk over each other, a speaker change can be spotted slightly late, so the new speaker's first word or two can land on the previous one. One microphone genuinely cannot separate two voices in the same moment. This is physics, not a bug I can prompt away.</p></div>
+        <div class="step"><h4>Live runs a couple of seconds behind</h4><p>The speaker label is given a moment to settle before words are shown, because a fast wrong label is worse than a slightly slow right one. That's a deliberate trade, not a performance miss.</p></div>
+        <div class="step"><h4>Live is CPU-bound</h4><p>Every live debate spawns its own voice-fingerprint worker on the server. That handles a handful of simultaneous debates comfortably, but it doesn't scale for free. Heavy concurrency needs a bigger machine or a GPU.</p></div>
+        <div class="step"><h4>Uploads beat live on accuracy</h4><p>The upload path sees the whole recording at once and produces the cleanest speaker labels the product can make. If you want the best possible result, import the recording rather than capturing live. Saying that out loud costs me the flashier demo and it's still the right advice.</p></div>
+      </div>
+    </div>
+
+    <!-- ============ 10 DECISIONS ============ -->
+    <div class="cs-sec" id="decisions">
+      <h3><span class="sec-num">13</span>The decisions that shaped it</h3>
+      <div class="cs-matrix">
+        <div class="row head"><span>Decision</span><span>What I rejected</span><span>Why</span><span>Verdict</span></div>
+        <div class="row"><span class="feat">Search first, model second</span><span>One grounded call that searches and judges together</span><span>Faster, cleaner sources, and you can see which half failed</span><span class="flag green">Held up</span></div>
+        <div class="row"><span class="feat">Deterministic score</span><span>Letting the model judge the debate</span><span>An AI verdict on politics is a bias story, and it burns trust in everything else on screen</span><span class="flag green">Held up</span></div>
+        <div class="row"><span class="feat">Never declare a winner</span><span>A satisfying "Blue wins" banner</span><span>The moment it picks a side, it stops being a tool and becomes a participant</span><span class="flag green">Held up</span></div>
+        <div class="row"><span class="feat">Split words from voices</span><span>Taking one vendor's speaker labels</span><span>Two specialists stitched together beat one system that's average at both</span><span class="flag green">Held up</span></div>
+        <div class="row"><span class="feat">One model everywhere</span><span>A bigger model for the harder steps</span><span>Uniform is cheaper, and one shared file means the model swaps in one line</span><span class="flag green">Held up</span></div>
+        <div class="row"><span class="feat">A VM, not serverless</span><span>The modern default</span><span>Hours-long connections and a CPU worker per session; serverless cuts both</span><span class="flag green">Held up</span></div>
+      </div>
+    </div>
+
+    <!-- ============ 11 LEARNED ============ -->
+    <div class="cs-sec" id="learned">
+      <h3><span class="sec-num">14</span>What it taught me</h3>
+      <p><b>Invest where errors compound, not where they show.</b> Live scoring is the demo. Speaker attribution is the product. Every claim, every contradiction, every point on the board inherits whether the right name got attached to the right sentence, so the invisible layer got the rebuild and the flashy layer got arithmetic. Prioritizing by dependency instead of by demo value is the same judgment any platform PM makes.</p>
+      <p><b>Trust is an architecture decision, not a copy decision.</b> I could have written "unbiased" on the landing page. Instead the score is arithmetic anyone can redo, every point opens to its sources, and the product refuses to name a winner. You don't earn credibility by claiming it. You earn it by making yourself checkable.</p>
+      <p><b>The best model is usually the boring one.</b> One small model at one setting across seven jobs, a search API in front of it instead of a clever grounded prompt, and a plain VM underneath. Every one of those beat the more impressive option on the thing that actually mattered.</p>
+    </div>
+
+  </div>
+
+  <div class="cs-next">
+    <div class="tag-pill">More side projects </div>
+    <div style="margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
+      <a class="btn btn-ink" href="project-pantryhub.html">PantryChef <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="project-productsense.html">Productsense <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="index.html#projects">All projects <span class="arr">→</span></a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <span>© <span id="yr"></span> <b>Ashwin Thomas Paul</b> · designed and prototyped by me.</span>
+</footer>
+
+<script src="js/grainient.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
