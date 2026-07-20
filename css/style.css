@@ -1408,6 +1408,21 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -.035em; line-height: 
 .mshot .im img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mshot figcaption { margin-top: 9px; font-size: 12.5px; color: var(--mute); letter-spacing: .03em; }
 @media (prefers-reduced-motion: reduce) { .marq-track { animation: none; } }
+/* mobile: no auto-scroll; the strip sits still and swipes by hand (clones hidden) */
+@media (max-width: 720px) {
+  .marq {
+    overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    -webkit-mask-image: none; mask-image: none;
+    padding: 2px var(--pad) 8px; scroll-padding-left: var(--pad);
+    scrollbar-width: none;
+  }
+  .marq::-webkit-scrollbar { display: none; }
+  .marq-track { animation: none; }
+  .marq-track .dup { display: none; }
+  .mshot { scroll-snap-align: start; }
+}
 
 /* statement: a set line, not a scroll trick */
 .statement .st-line {

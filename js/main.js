@@ -18,9 +18,17 @@
   initIf("grain-closing", GRAIN_DARK);
   initIf("grain-page", {});    /* light grainient behind every light surface */
 
-  /* Seamless marquee: duplicate track content once */
+  /* Seamless marquee: duplicate the track once for the desktop auto-scroll loop.
+     Clones are tagged .dup so mobile (which swipes by hand) can hide them. */
   var track = document.getElementById("marquee-track");
-  if (track) track.innerHTML += track.innerHTML;
+  if (track) {
+    Array.prototype.slice.call(track.children).forEach(function (node) {
+      var clone = node.cloneNode(true);
+      clone.classList.add("dup");
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    });
+  }
 
   /* Hero video: nudge autoplay (some engines want an explicit play() call) */
   var heroVid = document.querySelector(".tile-video video");
