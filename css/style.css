@@ -189,7 +189,9 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -.035em; line-height: 
   min-width: 0;
 }
 /* the video's 16:9 is the anchor: it defines the row height everything else stretches to */
-.tile-video { aspect-ratio: 16 / 9; }
+.tile-video { aspect-ratio: 16 / 9; width: 100%; }
+/* width pinned to the grid track: when a short viewport makes the stats card the
+   tallest item, the stretched row height must never re-derive a wider video tile */
 /* absolute-fill media so intrinsic sizes never inflate the grid rows */
 .tile-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* annotation: bold label, then the arrow's tail picks up right where the text ends,
